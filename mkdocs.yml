@@ -39,7 +39,9 @@ markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
+  - smarty
   - pymdownx.blocks.caption
+  - pymdownx.magiclink
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.emoji
