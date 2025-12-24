@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# VS Code
+.vscode/
+
+# Dine chunks
+/embeddings/chunks/
+
+# Marp-genererede filer (bygges på serveren)
+*.marp.html
+*.marp.pdf
+*.marp.pptx

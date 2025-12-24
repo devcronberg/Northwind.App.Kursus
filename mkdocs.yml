@@ -1,0 +1,66 @@
+site_name: Byg en moderne webapplikation med C#
+site_url: https://mcronberg.github.io\prosa-webapp
+
+plugins:
+  - search:
+      lang: da
+  - awesome-pages
+  - mkdocs-video
+  - document-dates:
+      position: top
+      type: date
+      locale: da
+      date_format: '%Y-%m-%d'
+      time_format: '%H:%M:%S'
+      exclude:
+        - 'README.md'
+        - 'index.md'
+      show_author: true
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: da
+  features:
+    - content.code.copy
+    - navigation.indexes
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.snippets
+  - pymdownx.tasklist
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.betterem
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - assets/extra.css

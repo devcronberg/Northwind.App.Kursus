@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - run: pip install -r requirements.txt
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Build Marp slides
+        run: |
+          for file in docs/*.marp.md; do
+            if [ -f "$file" ]; then
+              marp "$file" -o "${file%.marp.md}.marp.html"
+              marp "$file" --pdf -o "${file%.marp.md}.marp.pdf"
+              marp "$file" --pptx -o "${file%.marp.md}.marp.pptx"
+            fi
+          done
+
+      - run: python toc.py
+      - run: python combine.py
+      - run: python requirements.py
+      - run: mkdocs build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
