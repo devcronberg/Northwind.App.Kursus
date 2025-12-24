@@ -35,9 +35,6 @@ jobs:
             fi
           done
 
-      - run: python toc.py
-      - run: python combine.py
-      - run: python requirements.py
       - run: mkdocs build
 
       - name: Deploy to GitHub Pages
