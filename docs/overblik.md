@@ -3,7 +3,7 @@ created: 2025-12-25
 modified: 2025-12-25
 author: Michell Cronberg
 ---
-# Teknologioverblik
+# Overblik
 
 I dette kursus bygger vi en moderne webapplikation fra bunden. Her får du et overblik over de teknologier, vi bruger – og hvorfor.
 
@@ -24,7 +24,7 @@ flowchart TB
     subgraph FRONTEND["🌐 FRONTEND"]
         direction LR
         F1["HTML + CSS (Bootstrap) + JavaScript"]
-        F2["Hostet på GitHub Pages"]
+        F2["Hostet lokalt eller på GitHub Pages"]
         F3["Kan installeres som PWA"]
     end
     
@@ -32,7 +32,7 @@ flowchart TB
         direction LR
         B1["ASP.NET Core Web API"]
         B2["C# / .NET 10"]
-        B3["Hostet på Render.com (Docker)"]
+        B3["Hostet lokalt eller feks på Render.com (Docker)"]
     end
     
     subgraph DATABASE["🗄️ DATABASE"]
@@ -72,7 +72,27 @@ REST (Representational State Transfer) er en arkitekturstil til at bygge web-tje
 - Klienten (frontend) sender HTTP-forespørgsler (GET, POST, PUT, DELETE)
 - Serveren (backend) svarer med data i JSON-format
 
-Eksempel:
+**Hvad er JSON?**
+
+JSON (JavaScript Object Notation) er et tekstformat til at strukturere data. Det er let at læse for både mennesker og computere, og det er standarden for dataudveksling på nettet.
+
+```json
+{
+  "id": 1,
+  "name": "Laptop",
+  "price": 7999.00,
+  "inStock": true
+}
+```
+
+JSON bruger:
+
+- `{ }` til objekter (samling af nøgle-værdi par)
+- `[ ]` til lister/arrays
+- Nøgler i anførselstegn (`"name"`)
+- Værdier som tekst, tal, true/false eller null
+
+Eksempel på REST-kald:
 ```
 GET /api/products        → Hent alle produkter
 GET /api/products/1      → Hent produkt med id 1
@@ -166,21 +186,28 @@ Frontenden er det, brugeren ser og interagerer med. Vi holder det så simpelt so
 | **CSS**        | Udseendet (farver, layout, typografi)                   |
 | **JavaScript** | Interaktivitet og kommunikation med backend             |
 
-### Bootstrap
+### CSS Frameworks
 
-**Bootstrap** er et populært CSS-framework, der giver os:
+At skrive al CSS fra bunden er tidskrævende og kræver erfaring med responsive design. Et **CSS framework** giver dig:
 
-- Færdige komponenter (knapper, formularer, navigation)
-- Responsivt grid-system (virker på mobil og desktop)
-- Konsistent design uden at skrive meget CSS
+- **Færdige komponenter** – knapper, formularer, navigation, modals
+- **Responsivt grid-system** – automatisk tilpasning til mobil/tablet/desktop
+- **Konsistent design** – professionelt udseende uden at være designer
+- **Cross-browser kompatibilitet** – virker i alle moderne browsere
 
-**Hvorfor Bootstrap?**
+**Populære CSS frameworks:**
 
-- Hurtigt at komme i gang
-- God dokumentation
-- Bredt udbredt (let at finde hjælp)
+| Framework        | Beskrivelse                                                                         | Link                                          |
+| ---------------- | ----------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Bootstrap**    | Det mest udbredte framework. Stort community, masser af dokumentation og eksempler. | [getbootstrap.com](https://getbootstrap.com/) |
+| **Tailwind CSS** | Utility-first framework. Giver fuld kontrol, men kræver mere læring.                | [tailwindcss.com](https://tailwindcss.com/)   |
+| **Bulma**        | Rent CSS (ingen JavaScript). Simpelt og moderne.                                    | [bulma.io](https://bulma.io/)                 |
+| **UIkit**        | Modulært framework med pæne komponenter og god dokumentation.                       | [getuikit.com](https://getuikit.com/)         |
+| **Foundation**   | Professionelt framework med fokus på fleksibilitet.                                 | [get.foundation](https://get.foundation/)     |
+| **Fomantic UI**  | Fork af Semantic UI. Intuitive klassenavne.                                         | [fomantic-ui.com](https://fomantic-ui.com/)   |
 
-[Bootstrap dokumentation →](https://getbootstrap.com/)
+!!! note "Beslutning ikke låst"
+    Vi har endnu ikke endeligt besluttet, hvilket CSS framework vi bruger i kurset. Bootstrap er et godt udgangspunkt, men vi kan også overveje alternativer som Bulma eller Fomantic UI afhængigt af, hvad der passer bedst til vores applikation.
 
 ### GitHub Pages
 
