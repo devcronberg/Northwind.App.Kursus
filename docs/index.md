@@ -2,6 +2,8 @@
 
 Velkommen til supportmaterialet for PROSA's webinar-forløb om webudvikling med ASP.NET Core. Jeg hedder **Michell Cronberg** og står for undervisningen.
 
+Dette site kan findes på GitHub Pages: https://devcronberg.github.io/Northwind.App.Kursus/
+
 ## Om forløbet
 
 Dette forløb er tredje modul i rækken af C#-kurser hos PROSA og henvender sig til dig, der har erfaring med programmering. Vi bygger en komplet, moderne webapplikation med C#, ASP.NET Core MVC, JavaScript, CSS mv – trin for trin.

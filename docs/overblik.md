@@ -421,5 +421,149 @@ En **PWA** er en webapp, der kan installeres som en "rigtig" app på telefon ell
 | **GitHub Actions** | Automatisk build og deploy (CI/CD) |
 | **GitHub Copilot** | AI-assisteret kodning              |
 
+---
+
+## Deployment og Automation
+
+### Pipelines – Automatisk deployment
+
+En **pipeline** (også kaldet CI/CD pipeline) er en automatiseret proces, der bygger, tester og deployer din kode uden manuel indgriben.
+
+**Hvad betyder CI/CD?**
+
+- **CI (Continuous Integration)** – Automatisk integration af kodeændringer
+- **CD (Continuous Deployment/Delivery)** – Automatisk deployment til produktion
+
+**Navne i forskellige systemer:**
+
+| Platform         | Navn på pipeline/workflow  |
+| ---------------- | -------------------------- |
+| **GitHub**       | GitHub Actions (workflows) |
+| **GitLab**       | GitLab CI/CD (pipelines)   |
+| **Azure DevOps** | Azure Pipelines            |
+| **Jenkins**      | Jenkins Pipelines          |
+| **CircleCI**     | CircleCI Workflows         |
+| **Travis CI**    | Travis CI Builds           |
+| **Bitbucket**    | Bitbucket Pipelines        |
+| **AWS**          | AWS CodePipeline           |
+
+Uanset navnet er konceptet det samme: **Automatiser gentagne opgaver i udviklingsprocessen**.
+
+### GitHub Actions
+
+**GitHub Actions** er GitHubs indbyggede system til at automatisere workflows direkte i dit repository.
+
+**Hvad kan GitHub Actions?**
+
+- **Automatisk bygge** kode når du pusher til GitHub
+- **Køre tests** og sikre kvaliteten af koden
+- **Deploye** til hosting-platforme (GitHub Pages, Render, Azure, osv.)
+- **Automatiske checks** før pull requests merges
+
+**Hvordan virker det?**
+
+1. Du opretter en **workflow-fil** i `.github/workflows/` mappen
+2. Workflow-filen definerer **hvornår** og **hvad** der skal ske
+3. GitHub Actions kører automatisk når betingelserne er opfyldt
+
+**Workflow-eksempel (konceptuelt):**
+
+```yaml
+# Trigger: Kør når der pushes til main branch
+on:
+  push:
+    branches: [main]
+
+# Jobs: Hvad skal der ske?
+jobs:
+  build-and-deploy:
+    steps:
+      - Hent koden
+      - Installér afhængigheder
+      - Byg projektet
+      - Kør tests
+      - Deploy til hosting
+```
+
+**Fordele:**
+
+- ✅ **Gratis for offentlige repos** – Perfekt til open source projekter
+- ✅ **Indbygget i GitHub** – Ingen ekstra værktøjer nødvendig
+- ✅ **Store marketplace** – Tusindvis af færdige actions
+- ✅ **Pålidelig** – Kører automatisk hver gang
+
+### Render.com Auto-Deploy
+
+**Render.com** integrerer direkte med GitHub og kan automatisk deploye din backend når koden ændres.
+
+**Deployment flow:**
+
+```mermaid
+flowchart LR
+    A["💻 Lokal udvikling"] -->|"git commit"| B["📝 Git"]
+    B -->|"git push"| C["📦 GitHub"]
+    C -->|"webhook"| D["🐳 Render.com"]
+    D -->|"bygger Docker"| E["🏗️ Build"]
+    E -->|"deployer"| F["🌐 Live Backend"]
+```
+
+**Hvad sker der automatisk?**
+
+1. **Du pusher til GitHub** – Din kode er nu på GitHub
+2. **Render.com får besked** – Via en webhook fra GitHub
+3. **Bygger Docker image** – Render læser `Dockerfile` og bygger
+4. **Starter ny container** – Den gamle container stoppes, den nye startes
+5. **Health check** – Render verificerer at appen kører
+6. **Traffic omdirigeres** – Brugere får den nye version
+
+**Dette sker alt sammen automatisk** uden at du skal gøre noget!
+
+### Frontend deployment med GitHub Actions
+
+For vores frontend bruger vi GitHub Actions til at deploye til GitHub Pages.
+
+**Processen:**
+
+1. **Push til GitHub** – Du pusher dine ændringer
+2. **GitHub Actions workflow kører** – Bygger frontend-filerne
+3. **Deployer til GitHub Pages** – Publicerer på `username.github.io/repo`
+
+**Hvad gør workflow'en?**
+
+- Installerer afhængigheder
+- Bygger/minifier JavaScript og CSS
+- Kopierer filer til `gh-pages` branch
+- GitHub Pages serverer automatisk filerne
+
+**Fordele:**
+
+- Ingen manuel FTP-upload
+- Ingen manuel build-proces
+- Altid den nyeste version online
+- Historie over alle deployments
+
+### Hvorfor automatisere?
+
+**Før automation:**
+
+1. Byg projektet manuelt
+2. Kør tests manuelt
+3. Upload filer til server manuelt
+4. Tjek at alt virker manuelt
+5. Gentag ved hver ændring... 😫
+
+**Efter automation:**
+
+1. `git push`
+2. ✅ Færdig! Alt andet sker automatisk 🎉
+
+**Resultatet:**
+
+- 🚀 **Hurtigere deployment** – Fra minutter til sekunder
+- 🐛 **Færre fejl** – Ingen glemte filer eller trin
+- 🔄 **Hyppigere opdateringer** – Nemt at deploye små ændringer
+- ✅ **Bedre kvalitet** – Tests køres altid før deployment
+- 🕒 **Mere tid til kodning** – Mindre tid på deployment
+
 
 
