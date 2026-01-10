@@ -16,6 +16,7 @@ Her er links til eksempelkoden:
 - https://github.com/devcronberg/Northwind.App.Backend
   - https://northwind-backend-b088.onrender.com
 - https://github.com/devcronberg/Northwind.App.Frontend
+  - https://devcronberg.github.io/Northwind.App.Frontend/
 
 ### Om Northwind-databasen
 
