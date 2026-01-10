@@ -6,9 +6,7 @@ Dette site kan findes på GitHub Pages: https://devcronberg.github.io/Northwind.
 
 ## Om forløbet
 
-Dette forløb er tredje modul i rækken af C#-kurser hos PROSA og henvender sig til dig, der har erfaring med programmering. Vi bygger en komplet, moderne webapplikation med C#, ASP.NET Core MVC, JavaScript, CSS mv – trin for trin.
-
-Vi koder live i sessionerne, og du har mulighed for at bygge applikationen samtidig. Fokus er på hele processen – fra struktur og datamodeller til frontend og brugeroplevelse.
+Dette forløb er tredje modul i rækken af C#-kurser hos PROSA og henvender sig til dig, der har erfaring med programmering. Vi bygger en komplet, moderne webapplikation med C#, ASP.NET Core MVC, JavaScript, CSS mv – trin for trin. Fokus er på hele processen – fra struktur og datamodeller til frontend og brugeroplevelse.
 
 ## Sessioner
 

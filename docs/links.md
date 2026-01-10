@@ -83,5 +83,7 @@ Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmateria
 
 ### Bogen om C#
 - [Bogen om C# Online](https://mcronberg.github.io/bogenomcsharp/) - Michell Cronbergs online C# bog
-- [EF Core Opgave (N299)](https://mcronberg.github.io/bogenomcsharp/level2/opgaver/opgN299_ef/?h=north) - Northwind database opgave
+    - [EF Core Opgave (N299)](https://mcronberg.github.io/bogenomcsharp/level2/opgaver/opgN299_ef/?h=north) - Northwind database opgave
+- [Materiale brugt i web kurser](https://mcronberg.github.io/web)
+- [AI artikler](https://mcronberg.github.io/aiartikler/)
 

@@ -5,6 +5,69 @@ author: Michell Cronberg
 ---
 # Frontend
 
+## Hent eksempel kode
+
+Hele frontend-koden er tilgængelig på GitHub, så du kan følge med, eksperimentere og køre applikationen lokalt.
+
+### Clone repository
+
+Åbn en terminal og kør:
+
+```bash
+git clone https://github.com/devcronberg/Northwind.App.Frontend.git
+cd Northwind.App.Frontend
+```
+
+### Eller download som ZIP
+
+Hvis du ikke har Git installeret, eller foretrækker at hente koden som en ZIP-fil:
+
+1. Gå til [https://github.com/devcronberg/Northwind.App.Frontend](https://github.com/devcronberg/Northwind.App.Frontend)
+2. Klik på den grønne **Code** knap
+3. Vælg **Download ZIP**
+4. Pak ZIP-filen ud på din computer
+5. Åbn mappen i en terminal eller VS Code
+
+### Kør applikationen
+
+Du har flere muligheder for at køre frontend-applikationen lokalt:
+
+**Mulighed 1: VS Code Live Server extension**
+
+1. Højreklik på `index.html` i VS Code
+2. Vælg **"Open with Live Server"**
+3. Browseren åbner automatisk på [http://localhost:5500](http://localhost:5500)
+
+**Mulighed 2: http-server (Node.js)**
+
+```bash
+npx http-server -p 8080
+```
+
+Åbn [http://localhost:8080](http://localhost:8080) i browseren.
+
+**Mulighed 3: Python**
+
+```bash
+python -m http.server 8080
+```
+
+Åbn [http://localhost:8080](http://localhost:8080) i browseren.
+
+### Live Demo
+
+Frontend-applikationen er også deployed og tilgængelig online:
+
+🔗 **[https://devcronberg.github.io/Northwind.App.Frontend](https://devcronberg.github.io/Northwind.App.Frontend)**
+
+Den kommunikerer med backend API'et på:
+
+- **Backend**: [https://northwind-backend-b088.onrender.com](https://northwind-backend-b088.onrender.com)
+- **Swagger**: [https://northwind-backend-b088.onrender.com/swagger](https://northwind-backend-b088.onrender.com/swagger)
+
+!!! warning "Backend Cold Start"
+    Backend API'et kører på Render.com's free tier, som automatisk "sover" efter 15 minutter uden aktivitet. Den første request efter søvn kan tage 30-50 sekunder, mens tjenesten vågner op. Dette er normalt for free-tier deployments.
+
 ## Hvad er en Frontend?
 
 En **frontend** er den del af en webapplikation, som brugeren ser og interagerer med i browseren. Frontenden håndterer:
@@ -15,85 +78,95 @@ En **frontend** er den del af en webapplikation, som brugeren ser og interagerer
 - **State Management**: Holder styr på applikationens tilstand
 - **Responsivt Design**: Tilpasser sig forskellige skærmstørrelser
 
-## Single Page Application (SPA)
+## Multi-Page Application (MPA)
 
-Vores applikation er bygget som en **SPA** (Single Page Application), hvilket betyder:
+Vores applikation er bygget som en **Multi-Page Application** – en traditionel webapplikation med separate HTML-filer for hver side:
 
-- Kun én HTML-fil indlæses (index.html)
-- JavaScript opdaterer siden dynamisk
-- Ingen page refreshes ved navigation
-- Hurtigere brugeroplevelse efter første load
-- Backend leverer kun data (JSON), ikke HTML
+- `index.html` - Dashboard med top customers
+- `customers.html` - Customer management med CRUD operationer
+- Hver side er en komplet HTML-fil
+- Navigation mellem sider indlæser en ny HTML-fil
+- Backend leverer data via REST API (JSON)
 
-### Traditionel vs SPA
+### Web Components til Genbrug
 
-| Traditionel Web App            | Single Page App              |
-| ------------------------------ | ---------------------------- |
-| Server genererer HTML          | JavaScript genererer HTML    |
-| Hver side refresh = ny request | Kun data-requests efter load |
-| Langsommere navigation         | Hurtig navigation            |
-| Simpel SEO                     | Kræver ekstra SEO-arbejde    |
+Selvom vi har flere HTML-sider, genbruger vi kode via **Web Components**:
 
----
+- `<app-header>` - Fælles header på alle sider
+- `<app-footer>` - Fælles footer på alle sider
+- `<customer-table>` - Tabel-komponent til kunde-visning
+- `<customer-revenue-table>` - Dashboard-tabel
+- `<form-text-input>` - Genanvendelig form-input
 
-## Hent eksempel kode
+Web Components giver os **modulær og genanvendelig kode** uden behov for et framework.
 
-Hele frontend-koden er tilgængelig på GitHub:
+### Single Page Application (SPA) – Et Alternativ
 
-### Clone repository
+En **SPA** (Single Page Application) er en moderne applikationsarkitektur, hvor:
 
-```bash
-git clone https://github.com/devcronberg/Northwind.App.Frontend.git
-cd Northwind.App.Frontend
-```
+- Kun **én HTML-fil** indlæses (typisk `index.html`)
+- **JavaScript håndterer navigation** – ingen page refreshes
+- Dynamisk opdatering af indhold uden at genindlæse siden
+- **Client-side routing** – URL'er håndteres af JavaScript
+- Backend leverer kun data (JSON), aldrig HTML
 
-### Eller download som ZIP
+!!! info 
+    Se evt her: https://mcronberg.github.io/web/introwebapp.html#pure-server-side-applications
 
-1. Gå til [https://github.com/devcronberg/Northwind.App.Frontend](https://github.com/devcronberg/Northwind.App.Frontend)
-2. Klik på den grønne **Code** knap
-3. Vælg **Download ZIP**
-4. Pak ZIP-filen ud på din computer
-5. Åbn mappen i VS Code
+#### SPA vs Multi-Page Application
 
-### Installer dependencies
+| Multi-Page App (MPA)          | Single Page App (SPA)        |
+| ----------------------------- | ---------------------------- |
+| Flere HTML-filer              | Én HTML-fil                  |
+| Server håndterer routing      | JavaScript håndterer routing |
+| Page refresh ved navigation   | Ingen page refresh           |
+| Simpel SEO                    | Kræver ekstra SEO-arbejde    |
+| Simpel struktur               | Kræver routing-framework     |
+| Hurtig initial load           | Langsommere initial load     |
+| Browser-history virker native | Kræver History API           |
 
-```bash
-npm install
-```
+#### Hvordan bygges en SPA?
 
-### Kør applikationen lokalt
+**Med moderne frameworks:**
 
-Du har flere muligheder for at køre frontend-applikationen:
+En SPA bygges typisk med et JavaScript framework eller library:
 
-**Med VS Code Live Server extension:**
-1. Højreklik på `index.html`
-2. Vælg "Open with Live Server"
-3. Browseren åbner automatisk på `http://localhost:5500`
+| Framework/Library | Beskrivelse                                | Lærings-kurve |
+| ----------------- | ------------------------------------------ | ------------- |
+| **React**         | Mest populære. Component-baseret (JSX)     | Mellem        |
+| **Vue.js**        | Progressiv framework. Nem at lære          | Let           |
+| **Angular**       | Komplet framework fra Google. TypeScript   | Svær          |
+| **Svelte**        | Compiler-baseret. Ingen virtual DOM        | Let-Mellem    |
+| **Next.js**       | React framework med server-side rendering  | Mellem-Svær   |
+| **Nuxt.js**       | Vue framework med SSR og static generation | Mellem        |
 
-**Med http-server (Node.js):**
-```bash
-npx http-server -p 8080
-```
+**Vanilla JavaScript SPA:**
 
-**Med Python:**
-```bash
-python -m http.server 8080
-```
+Det er også muligt at bygge en SPA uden framework ved at bruge:
 
-### Live Demo
+- **History API** - Håndter browser-historik (`pushState`, `replaceState`)
+- **Fetch API** - Hent data fra backend
+- **DOM Manipulation** - Opdater siden dynamisk
+- **Event Listeners** - Fang navigation clicks og håndter dem med JavaScript
+- **Template Literals** - Generer HTML fra JavaScript
 
-Frontend-applikationen er deployed og tilgængelig online:
+#### Hvornår vælge SPA?
 
-🔗 **[https://devcronberg.github.io/Northwind.App.Frontend](https://devcronberg.github.io/Northwind.App.Frontend)**
+**SPA er godt når:**
 
-Den kommunikerer med backend API'et på:
-- **Backend**: [https://northwind-backend-b088.onrender.com](https://northwind-backend-b088.onrender.com)
-- **Swagger**: [https://northwind-backend-b088.onrender.com/swagger](https://northwind-backend-b088.onrender.com/swagger)
+- Du bygger en kompleks webapp med meget interaktion
+- Brugeren navigerer meget rundt i applikationen
+- Du vil have desktop-app-lignende oplevelse
+- Performance efter initial load er vigtig
+- Du har et dedikeret frontend-team
 
-!!! warning "Backend Cold Start"
-    Backend API'et kører på Render.com's free tier og går i dvale efter 15 minutter. Den første request kan tage 30-50 sekunder mens serveren vågner op.
+**Multi-Page er godt når:**
 
----
+- Du bygger en simpel webapp eller website
+- SEO er kritisk (nyheder, blogs, e-commerce)
+- Du vil have hurtig initial load
+- Du har et lille team eller begrænset JavaScript-erfaring
+- Browser-kompatibilitet er vigtig (ældre browsere)
 
 ## Projektets Teknologier
 
@@ -101,7 +174,6 @@ Den kommunikerer med backend API'et på:
 - Semantiske tags (`<header>`, `<main>`, `<footer>`, `<nav>`)
 - Custom Elements (Web Components)
 - Accessibility (ARIA attributes)
-- Moderne formularer
 
 ### 2. **CSS3**
 - Flexbox og Grid layouts
