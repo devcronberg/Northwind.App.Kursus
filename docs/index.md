@@ -1,4 +1,4 @@
-# Byg en moderne webapplikation med C#
+# Byg en moderne webapplikation med C\#
 
 Velkommen til supportmaterialet for PROSA's webinar-forløb om webudvikling med ASP.NET Core. Jeg hedder **Michell Cronberg** og står for undervisningen.
 

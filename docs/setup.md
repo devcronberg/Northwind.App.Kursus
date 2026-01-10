@@ -42,21 +42,65 @@ Du skulle se versionsnummeret, f.eks. `10.0.100`.
 3. Kør installationsfilen og følg vejledningen
 4. Åbn VS Code efter installationen
 
-### C# Dev Kit extension
+### Backend Extensions
 
-For at arbejde med C# i VS Code skal du installere **C# Dev Kit** extension:
+Til backend-udvikling med C# og ASP.NET Core anbefales følgende extensions:
 
 1. Åbn VS Code
 2. Klik på **Extensions**-ikonet i venstre side (eller tryk ++ctrl+shift+x++)
-3. Søg efter `C# Dev Kit` (se evt. https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
-4. Klik på **Install** på extensionen fra Microsoft
+3. Søg efter og installer følgende:
 
-!!! info "Hvad får du med C# Dev Kit?"
+| Extension               | ID                        | Formål                                                                    |
+| ----------------------- | ------------------------- | ------------------------------------------------------------------------- |
+| **C# Dev Kit**          | `ms-dotnettools.csdevkit` | Komplet C# udvikling - IntelliSense, debugging, test runner, NuGet        |
+| **GitHub Copilot Chat** | `github.copilot-chat`     | AI-assistent direkte i VS Code - få hjælp, forklaringer og kodegenerering |
+| **REST Client**         | `humao.rest-client`       | Test REST APIs direkte i VS Code - alternativ til Postman/Swagger         |
+
+!!! info "C# Dev Kit"
+    C# Dev Kit er den primære extension til C# udvikling og inkluderer:
+    
     - Syntaksfremhævning og IntelliSense
     - Debugging
     - Projektnavigation
     - Test Explorer
     - NuGet-pakkehåndtering
+
+!!! tip "REST Client"
+    Med REST Client kan du oprette `.http` eller `.rest` filer med HTTP requests og køre dem direkte i VS Code. Perfekt til at teste din API under udvikling!
+    
+    Eksempel:
+    ```http
+    ### Login
+    POST http://localhost:5000/api/auth/login
+    Content-Type: application/json
+    
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+    ```
+
+### Frontend Extensions
+
+Til frontend-udvikling (HTML, CSS, JavaScript) anbefales følgende extensions:
+
+1. Åbn VS Code
+2. Klik på **Extensions**-ikonet (eller tryk ++ctrl+shift+x++)
+3. Søg efter og installer følgende:
+
+| Extension                   | ID                                    | Formål                                                                |
+| --------------------------- | ------------------------------------- | --------------------------------------------------------------------- |
+| **HTMLHint**                | `htmlhint.vscode-htmlhint`            | Lint/validering af HTML kode - finder fejl og best practice issues    |
+| **Stylelint**               | `stylelint.vscode-stylelint`          | Lint/validering af CSS/SCSS - finder fejl og styling problemer        |
+| **ESLint**                  | `dbaeumer.vscode-eslint`              | Lint/validering af JavaScript - finder fejl og code quality issues    |
+| **Live Server**             | `ritwickdey.liveserver`               | Live preview med auto-reload - se ændringer med det samme i browseren |
+| **Edge DevTools** (valgfri) | `chromedevtools.vscode-edge-devtools` | Browser DevTools direkte i VS Code - debug uden at skifte vindue      |
+
+!!! tip "Live Server"
+    Live Server er særligt nyttig under udvikling. Når du har åbnet en HTML-fil, kan du højreklikke og vælge "Open with Live Server" - så opdateres browseren automatisk hver gang du gemmer en fil.
+
+!!! note "Linters"
+    Linters (HTMLHint, Stylelint, ESLint) hjælper dig med at skrive bedre kode ved at markere fejl og problemer, mens du koder. Det er som en stavekontrol for din kode!
 
 ## Git
 

@@ -13,10 +13,10 @@ Vi udvikler en webapplikation, der simulerer et **ERP-system** (Enterprise Resou
 
 Her er links til eksempelkoden:
 
-- https://github.com/devcronberg/Northwind.App.Backend
-  - https://northwind-backend-b088.onrender.com
-- https://github.com/devcronberg/Northwind.App.Frontend
-  - https://devcronberg.github.io/Northwind.App.Frontend/
+- Kode: https://github.com/devcronberg/Northwind.App.Backend
+    - Deployment: https://northwind-backend-b088.onrender.com
+- Kode: https://github.com/devcronberg/Northwind.App.Frontend
+    - Deployment: https://devcronberg.github.io/Northwind.App.Frontend/
 
 ### Om Northwind-databasen
 
@@ -95,7 +95,7 @@ flowchart TB
 
 ## Backend
 
-### .NET 10 og C#
+### .NET 10 og C\#
 
 **.NET** er Microsofts platform til at bygge applikationer. **C#** er programmeringssproget, vi skriver koden i.
 
@@ -123,14 +123,14 @@ flowchart TB
     
     Valget af teknologi afhænger af faktorer som team-kompetencer, projektets krav, eksisterende infrastruktur og økosystem. .NET er et solidt valg med bred anvendelse, men det er altid værd at evaluere alternativer baseret på dit konkrete behov.
 
-**Hvad er en REST API?**
+### Hvad er en REST API?
 
 REST (Representational State Transfer) er en arkitekturstil til at bygge web-tjenester. I praksis betyder det:
 
 - Klienten (frontend) sender HTTP-forespørgsler (GET, POST, PUT, DELETE)
 - Serveren (backend) svarer med data i JSON-format
 
-**Hvad er JSON?**
+### Hvad er JSON?
 
 JSON (JavaScript Object Notation) er et tekstformat til at strukturere data. Det er let at læse for både mennesker og computere, og det er standarden for dataudveksling på nettet.
 

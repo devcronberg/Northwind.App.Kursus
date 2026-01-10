@@ -5,54 +5,6 @@ author: Michell Cronberg
 ---
 # Backend
 
-## Hvad er en Backend?
-
-En **backend** er den del af en webapplikation, der kører på en server og håndterer:
-
-- **Data**: Gemmer og henter information fra en database
-- **Forretningslogik**: Udfører beregninger, valideringer, og regler
-- **Authentication**: Sikrer at kun autoriserede brugere har adgang
-- **API**: Udstiller endpoints som frontend kan kalde
-
-
-## Hvad er et REST API?
-
-**REST** (Representational State Transfer) er en arkitektur for at bygge webservices. Et REST API bruger HTTP-protokollen til at kommunikere.
-
-### HTTP Metoder (Verbs)
-
-| Metode   | Formål               | Eksempel             |
-| -------- | -------------------- | -------------------- |
-| `GET`    | Hent data            | Hent liste af kunder |
-| `POST`   | Opret nyt            | Opret ny kunde       |
-| `PUT`    | Opdater eksisterende | Opdater kunde info   |
-| `DELETE` | Slet                 | Slet en kunde        |
-
-### HTTP Status Codes
-
-| Kode                        | Betydning       | Eksempel                |
-| --------------------------- | --------------- | ----------------------- |
-| `200 OK`                    | Success         | Data hentet succesfuldt |
-| `201 Created`               | Oprettet        | Ny kunde oprettet       |
-| `400 Bad Request`           | Ugyldig request | Manglende felter        |
-| `401 Unauthorized`          | Ikke logget ind | Manglende JWT token     |
-| `404 Not Found`             | Findes ikke     | Kunde ID findes ikke    |
-| `500 Internal Server Error` | Serverfejl      | Uventet exception       |
-
-### RESTful Endpoints
-
-Endpoints følger et konsistent mønster:
-
-```
-GET    /api/customers          → Hent alle kunder
-GET    /api/customers/ALFKI    → Hent specifik kunde
-POST   /api/customers          → Opret ny kunde
-PUT    /api/customers/ALFKI    → Opdater kunde
-DELETE /api/customers/ALFKI    → Slet kunde
-```
-
----
-
 ## Hent eksempel kode
 
 Hele backend-koden er tilgængelig på GitHub, så du kan følge med, eksperimentere og køre applikationen lokalt.
@@ -147,6 +99,54 @@ eller
   "password": "user"
 }
 ```
+
+
+## Hvad er en Backend?
+
+En **backend** er den del af en webapplikation, der kører på en server og håndterer:
+
+- **Data**: Gemmer og henter information fra en database
+- **Forretningslogik**: Udfører beregninger, valideringer, og regler
+- **Authentication**: Sikrer at kun autoriserede brugere har adgang
+- **API**: Udstiller endpoints som frontend kan kalde
+
+
+## Hvad er et REST API?
+
+**REST** (Representational State Transfer) er en arkitektur for at bygge webservices. Et REST API bruger HTTP-protokollen til at kommunikere.
+
+### HTTP Metoder (Verbs)
+
+| Metode   | Formål               | Eksempel             |
+| -------- | -------------------- | -------------------- |
+| `GET`    | Hent data            | Hent liste af kunder |
+| `POST`   | Opret nyt            | Opret ny kunde       |
+| `PUT`    | Opdater eksisterende | Opdater kunde info   |
+| `DELETE` | Slet                 | Slet en kunde        |
+
+### HTTP Status Codes
+
+| Kode                        | Betydning       | Eksempel                |
+| --------------------------- | --------------- | ----------------------- |
+| `200 OK`                    | Success         | Data hentet succesfuldt |
+| `201 Created`               | Oprettet        | Ny kunde oprettet       |
+| `400 Bad Request`           | Ugyldig request | Manglende felter        |
+| `401 Unauthorized`          | Ikke logget ind | Manglende JWT token     |
+| `404 Not Found`             | Findes ikke     | Kunde ID findes ikke    |
+| `500 Internal Server Error` | Serverfejl      | Uventet exception       |
+
+### RESTful Endpoints
+
+Endpoints følger et konsistent mønster:
+
+```
+GET    /api/customers          → Hent alle kunder
+GET    /api/customers/ALFKI    → Hent specifik kunde
+POST   /api/customers          → Opret ny kunde
+PUT    /api/customers/ALFKI    → Opdater kunde
+DELETE /api/customers/ALFKI    → Slet kunde
+```
+
 
 ## Projektets Teknologier
 
