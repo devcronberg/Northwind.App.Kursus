@@ -1,0 +1,1463 @@
+
+<!doctype html>
+<html lang="da" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Michell Cronberg">
+      
+      
+        <link rel="canonical" href="https://mcronberg.github.io\prosa-webapp/setup/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../overblik/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Opsætning - Byg en moderne webapplikation med C#</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/core/core.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/user.config.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#opstning-af-udviklingsmilj" class="md-skip">
+          Gå til indholdet
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Sidehoved">
+    <a href=".." title="Byg en moderne webapplikation med C#" class="md-header__button md-logo" aria-label="Byg en moderne webapplikation med C#" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Byg en moderne webapplikation med C#
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Opsætning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Søg" placeholder="Søg" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Søg">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Nulstil søgning" aria-label="Nulstil søgning" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Start søgning
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Byg en moderne webapplikation med C#" class="md-nav__button md-logo" aria-label="Byg en moderne webapplikation med C#" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Byg en moderne webapplikation med C#
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opsætning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opsætning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#net-10-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .NET 10 SDK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".NET 10 SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux (Ubuntu/Debian)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux (Fedora)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurer-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurer Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-desktop-valgfrit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Desktop (Valgfrit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Desktop (Valgfrit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-konto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub konto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub konto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opret-en-konto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opret en konto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Copilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Copilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abonnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abonnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aktiver-github-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktiver GitHub Copilot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-i-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installer i VS Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-ai-assistenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative AI-assistenter
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 1 Overblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 2 Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 3 Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links og Ressourcer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#net-10-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .NET 10 SDK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".NET 10 SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux (Ubuntu/Debian)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux (Fedora)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurer-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurer Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-desktop-valgfrit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Desktop (Valgfrit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Desktop (Valgfrit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificer-installationen_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificer installationen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-konto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub konto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub konto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opret-en-konto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opret en konto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Copilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Copilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abonnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abonnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aktiver-github-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktiver GitHub Copilot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installer-i-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installer i VS Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-ai-assistenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative AI-assistenter
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="opstning-af-udviklingsmilj">Opsætning af udviklingsmiljø</h1>
+<div class="document-dates-plugin-wrapper document-dates-top"><div class="document-dates-plugin" locale="da"><div class="dd-left"><span class="dd-item" data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T00:00:00">2025-12-24</time></span><span class="dd-item" data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2025-12-24T00:00:00">2025-12-24</time></span></div><div class="dd-right"><span class="material-icons" data-icon="doc_author"></span><div class="author-group"><div class="avatar-wrapper" data-name="Michell Cronberg" data-tippy-content data-tippy-raw='&lt;a href="mailto:michell@cronberg.dk"&gt;Michell Cronberg&lt;/a&gt;'><span class="avatar-text"></span><img class="avatar" data-src="" data-email="michell@cronberg.dk"></div></div></div></div></div>
+
+<p>Før vi går i gang med kurset, skal du have installeret nogle værktøjer på din computer. Denne guide hjælper dig igennem processen trin for trin.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tag det roligt</p>
+<p>Hvis du er ny til programmering, kan det virke overvældende med alle disse værktøjer. Tag det i dit eget tempo – du kan altid vende tilbage til denne guide.</p>
+</div>
+<h2 id="net-10-sdk">.NET 10 SDK</h2>
+<p><strong>.NET</strong> er den platform, vi bruger til at bygge vores webapplikation på serveren. Du skal installere <strong>.NET 10 SDK</strong> (Software Development Kit).</p>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>Gå til <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a></li>
+<li>Vælg <strong>.NET 10</strong> (eller seneste version)</li>
+<li>Download <strong>SDK</strong> til dit styresystem</li>
+<li>Kør installationsfilen og følg vejledningen</li>
+</ol>
+<h3 id="verificer-installationen">Verificer installationen</h3>
+<p>Åbn en terminal (på Windows brug Command Prompt, PowerShell eller macOS/Linux Terminal) og skriv:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
+</span></code></pre></div>
+<p>Du skulle se versionsnummeret, f.eks. <code>10.0.100</code>.</p>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p><strong>Visual Studio Code</strong> (VS Code) er en gratis og populær kodeeditor fra Microsoft. Det er den editor, vi bruger i kurset.</p>
+<h3 id="installation_1">Installation</h3>
+<ol>
+<li>Gå til <a href="https://code.visualstudio.com/">code.visualstudio.com</a></li>
+<li>Klik på <strong>Download</strong>-knappen (den vælger automatisk den rigtige version til dit styresystem)</li>
+<li>Kør installationsfilen og følg vejledningen</li>
+<li>Åbn VS Code efter installationen</li>
+</ol>
+<h3 id="backend-extensions">Backend Extensions</h3>
+<p>Til backend-udvikling med C# og ASP.NET Core anbefales følgende extensions:</p>
+<ol>
+<li>Åbn VS Code</li>
+<li>Klik på <strong>Extensions</strong>-ikonet i venstre side (eller tryk <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>)</li>
+<li>Søg efter og installer følgende:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>ID</th>
+<th>Formål</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C# Dev Kit</strong></td>
+<td><code>ms-dotnettools.csdevkit</code></td>
+<td>Komplet C# udvikling - IntelliSense, debugging, test runner, NuGet</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot Chat</strong></td>
+<td><code>github.copilot-chat</code></td>
+<td>AI-assistent direkte i VS Code - få hjælp, forklaringer og kodegenerering</td>
+</tr>
+<tr>
+<td><strong>REST Client</strong></td>
+<td><code>humao.rest-client</code></td>
+<td>Test REST APIs direkte i VS Code - alternativ til Postman/Swagger</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">C# Dev Kit</p>
+<p>C# Dev Kit er den primære extension til C# udvikling og inkluderer:</p>
+<ul>
+<li>Syntaksfremhævning og IntelliSense</li>
+<li>Debugging</li>
+<li>Projektnavigation</li>
+<li>Test Explorer</li>
+<li>NuGet-pakkehåndtering</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">REST Client</p>
+<p>Med REST Client kan du oprette <code>.http</code> eller <code>.rest</code> filer med HTTP requests og køre dem direkte i VS Code. Perfekt til at teste din API under udvikling!</p>
+<p>Eksempel:
+</p><div class="language-http highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">### Login</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">POST http://localhost:5000/api/auth/login</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">Content-Type: application/json</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="err">  "username": "admin",</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="err">  "password": "admin"</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="err">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="frontend-extensions">Frontend Extensions</h3>
+<p>Til frontend-udvikling (HTML, CSS, JavaScript) anbefales følgende extensions:</p>
+<ol>
+<li>Åbn VS Code</li>
+<li>Klik på <strong>Extensions</strong>-ikonet (eller tryk <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>)</li>
+<li>Søg efter og installer følgende:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>ID</th>
+<th>Formål</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTMLHint</strong></td>
+<td><code>htmlhint.vscode-htmlhint</code></td>
+<td>Lint/validering af HTML kode - finder fejl og best practice issues</td>
+</tr>
+<tr>
+<td><strong>Stylelint</strong></td>
+<td><code>stylelint.vscode-stylelint</code></td>
+<td>Lint/validering af CSS/SCSS - finder fejl og styling problemer</td>
+</tr>
+<tr>
+<td><strong>ESLint</strong></td>
+<td><code>dbaeumer.vscode-eslint</code></td>
+<td>Lint/validering af JavaScript - finder fejl og code quality issues</td>
+</tr>
+<tr>
+<td><strong>Live Server</strong></td>
+<td><code>ritwickdey.liveserver</code></td>
+<td>Live preview med auto-reload - se ændringer med det samme i browseren</td>
+</tr>
+<tr>
+<td><strong>Edge DevTools</strong> (valgfri)</td>
+<td><code>chromedevtools.vscode-edge-devtools</code></td>
+<td>Browser DevTools direkte i VS Code - debug uden at skifte vindue</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Live Server</p>
+<p>Live Server er særligt nyttig under udvikling. Når du har åbnet en HTML-fil, kan du højreklikke og vælge “Open with Live Server” - så opdateres browseren automatisk hver gang du gemmer en fil.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Linters</p>
+<p>Linters (HTMLHint, Stylelint, ESLint) hjælper dig med at skrive bedre kode ved at markere fejl og problemer, mens du koder. Det er som en stavekontrol for din kode!</p>
+</div>
+<h2 id="git">Git</h2>
+<p><strong>Git</strong> er et versionskontrolsystem, der bruges til at holde styr på ændringer i kode. Det er essentielt for moderne softwareudvikling.</p>
+<h3 id="windows">Windows</h3>
+<ol>
+<li>Gå til <a href="https://git-scm.com/install/windows">git-scm.com</a></li>
+<li>Klik på <strong>Download for Windows</strong></li>
+<li>Kør installationsfilen</li>
+<li>Brug standardindstillingerne (bare klik <strong>Next</strong> hele vejen)</li>
+<li>Genstart VS Code efter installationen</li>
+</ol>
+<h3 id="macos">macOS</h3>
+<p>Der er flere måder at installere Git på macOS:</p>
+<p><strong>Via Homebrew (anbefalet):</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>install<span class="w"> </span>git
+</span></code></pre></div>
+<p><strong>Via Xcode Command Line Tools:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>xcode-select<span class="w"> </span>--install
+</span></code></pre></div>
+<p><strong>Via installer:</strong></p>
+<ol>
+<li>Gå til <a href="https://git-scm.com/">git-scm.com</a></li>
+<li>Download macOS-versionen</li>
+<li>Kør installationsfilen</li>
+</ol>
+<h3 id="linux-ubuntudebian">Linux (Ubuntu/Debian)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</span></code></pre></div>
+<h3 id="linux-fedora">Linux (Fedora)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git
+</span></code></pre></div>
+<h3 id="verificer-installationen_1">Verificer installationen</h3>
+<p>Åbn en terminal (eller Command Prompt/PowerShell på Windows) og skriv:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>--version
+</span></code></pre></div>
+<p>Du skulle se noget i stil med <code>git version 2.43.0</code>.</p>
+<h3 id="konfigurer-git">Konfigurer Git</h3>
+<p>Efter installation skal du konfigurere dit navn og email. Det gør du ved at køre følgende kommandoer i terminalen (på Windows Cmd eller Terminal eller PowerShell), hvor du erstatter med dit eget navn og email:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Dit Navn"</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"din@email.dk"</span>
+</span></code></pre></div>
+<h2 id="docker-desktop-valgfrit">Docker Desktop (Valgfrit)</h2>
+<p><strong>Docker Desktop</strong> er ikke påkrævet for at deltage i kurset, men det kan være en god måde at forstå Docker-konceptet på ved at køre containere lokalt.</p>
+<div class="admonition info">
+<p class="admonition-title">Hvorfor valgfrit?</p>
+<p>I kurset bruger vi Render.com til at hoste vores Docker-containere i skyen. Du behøver derfor ikke have Docker installeret lokalt. Men hvis du vil eksperimentere med Docker på din egen computer eller forstå containerisering bedre, er Docker Desktop et godt værktøj.</p>
+</div>
+<h3 id="installation_2">Installation</h3>
+<ol>
+<li>Gå til <a href="https://www.docker.com/products/docker-desktop/">docker.com/products/docker-desktop</a></li>
+<li>Download Docker Desktop til dit styresystem (Windows, macOS eller Linux)</li>
+<li>Kør installationsfilen og følg vejledningen</li>
+<li>Start Docker Desktop efter installationen</li>
+</ol>
+<h3 id="verificer-installationen_2">Verificer installationen</h3>
+<p>Åbn en terminal og skriv:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>--version
+</span></code></pre></div>
+<p>Du skulle se noget i stil med <code>Docker version 24.0.7</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Hvad kan du bruge Docker Desktop til?</p>
+<ul>
+<li>Køre backend-applikationen lokalt i en container</li>
+<li>Teste Dockerfile før deployment</li>
+<li>Lære om containerisering hands-on</li>
+<li>Køre flere services lokalt (database, cache, etc.)</li>
+</ul>
+</div>
+<h2 id="github-konto">GitHub konto</h2>
+<p><strong>GitHub</strong> er en platform til at hoste og samarbejde om kode. Vi bruger GitHub til at dele kode og materiale i kurset.</p>
+<h3 id="opret-en-konto">Opret en konto</h3>
+<ol>
+<li>Gå til <a href="https://github.com/">github.com</a></li>
+<li>Klik på <strong>Sign up</strong></li>
+<li>Følg vejledningen for at oprette en gratis konto</li>
+<li>Bekræft din email-adresse</li>
+</ol>
+<h3 id="github-copilot">GitHub Copilot</h3>
+<p><strong>GitHub Copilot</strong> er en AI-assistent, der hjælper dig med at skrive kode. Den er integreret i VS Code og kan spare dig for meget tid.</p>
+<h4 id="abonnement">Abonnement</h4>
+<p>GitHub Copilot kræver et abonnement:</p>
+<ul>
+<li><strong>Gratis</strong> for studerende og open source-vedligeholdere</li>
+<li><strong>$10/måned</strong> eller <strong>$100/år</strong> for individuelle brugere</li>
+<li><strong>30 dages gratis prøveperiode</strong> for nye brugere</li>
+</ul>
+<h4 id="aktiver-github-copilot">Aktiver GitHub Copilot</h4>
+<ol>
+<li>Gå til <a href="https://github.com/settings/copilot">github.com/settings/copilot</a></li>
+<li>Klik på <strong>Enable GitHub Copilot</strong></li>
+<li>Vælg dit abonnement eller start en prøveperiode</li>
+</ol>
+<h4 id="installer-i-vs-code">Installer i VS Code</h4>
+<p>Nedenstående extensions er muligvis allerede installeret som en del af VS Code installationen. Hvis ikke, så følg disse trin:</p>
+<ol>
+<li>Åbn VS Code</li>
+<li>Gå til <strong>Extensions</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>)</li>
+<li>Søg efter <code>GitHub Copilot</code></li>
+<li>Installer både <strong>GitHub Copilot</strong> og <strong>GitHub Copilot Chat</strong></li>
+<li>Log ind med din GitHub-konto når du bliver bedt om det</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Husk at logge ind</p>
+<p>Første gang du bruger Copilot i VS Code, skal du logge ind med din GitHub-konto. Følg vejledningen i VS Code.</p>
+</div>
+<h2 id="alternative-ai-assistenter">Alternative AI-assistenter</h2>
+<p>Udover GitHub Copilot kan det være en fordel at have adgang til en eller flere alternative <strong>Large Language Models (LLM’er)</strong>. De kan bruges til at:</p>
+<ul>
+<li>Få forklaringer på kode og koncepter</li>
+<li>Generere kodesnippets</li>
+<li>Fejlfinde problemer</li>
+<li>Lære nye teknologier</li>
+</ul>
+<p>Her er de mest populære muligheder:</p>
+<table>
+<thead>
+<tr>
+<th>Tjeneste</th>
+<th>Beskrivelse</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ChatGPT</strong></td>
+<td>OpenAI’s populære AI-assistent. Gratis version tilgængelig, Plus-abonnement giver adgang til GPT-4.</td>
+<td><a href="https://chat.openai.com/">chat.openai.com</a></td>
+</tr>
+<tr>
+<td><strong>Claude</strong></td>
+<td>Anthropic’s AI-assistent. Kendt for gode forklaringer og længere kontekst. Gratis version tilgængelig.</td>
+<td><a href="https://claude.ai/">claude.ai</a></td>
+</tr>
+<tr>
+<td><strong>Gemini</strong></td>
+<td>Googles AI-assistent. Integreret med Google-tjenester. Gratis version tilgængelig.</td>
+<td><a href="https://gemini.google.com/">gemini.google.com</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Gratis at prøve</p>
+<p>Alle tre tjenester har gratis versioner, så du kan prøve dem og se, hvilken du foretrækker. Det kræver blot oprettelse af en konto.</p>
+</div></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.indexes"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopieret til udklipsholderen", "clipboard.copy": "Kopi\u00e9r til udklipsholderen", "search.result.more.one": "1 resultat mere p\u00e5 denne side", "search.result.more.other": "# resultater mere p\u00e5 denne side", "search.result.none": "Ingen resultater fundet", "search.result.one": "1 resultat", "search.result.other": "# resultater", "search.result.placeholder": "Indtast s\u00f8geord", "search.result.term.missing": "Mangler", "select.version": "V\u00e6lg version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../assets/document_dates/user.config.js"></script>
+      
+        <script src="../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../assets/document_dates/core/core.js"></script>
+      
+    
+  </body>
+</html>

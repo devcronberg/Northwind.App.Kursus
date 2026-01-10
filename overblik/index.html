@@ -1,0 +1,1712 @@
+
+<!doctype html>
+<html lang="da" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Michell Cronberg">
+      
+      
+        <link rel="canonical" href="https://mcronberg.github.io\prosa-webapp/overblik/">
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../backend/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Session 1 Overblik - Byg en moderne webapplikation med C#</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/core/core.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/user.config.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overblik" class="md-skip">
+          Gå til indholdet
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Sidehoved">
+    <a href=".." title="Byg en moderne webapplikation med C#" class="md-header__button md-logo" aria-label="Byg en moderne webapplikation med C#" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Byg en moderne webapplikation med C#
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Session 1 Overblik
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Søg" placeholder="Søg" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Søg">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Nulstil søgning" aria-label="Nulstil søgning" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Start søgning
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Byg en moderne webapplikation med C#" class="md-nav__button md-logo" aria-label="Byg en moderne webapplikation med C#" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Byg en moderne webapplikation med C#
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opsætning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 1 Overblik
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 1 Overblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hvad-bygger-vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad bygger vi?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hvad bygger vi?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#om-northwind-databasen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Om Northwind-databasen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vores-applikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vores applikation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arkitekturoverblik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arkitekturoverblik
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-10-og-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .NET 10 og C#
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspnet-core-web-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASP.NET Core Web API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-en-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er en REST API?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er JSON?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entity-framework-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Framework Core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-containerisering-forklaret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker – Containerisering forklaret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker – Containerisering forklaret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-problemet-docker-lser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er problemet Docker løser?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-en-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er en container?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-vs-virtual-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker vs. Virtual Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-vs-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Image vs. Docker Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvorfor-docker-i-vores-projekt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvorfor Docker i vores projekt?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendercom-cloud-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render.com – Cloud hosting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Render.com – Cloud hosting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternativer-til-rendercom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternativer til Render.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-css-og-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML, CSS og JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionsstyring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionsstyring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versionsstyring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 2 Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 3 Frontend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links og Ressourcer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hvad-bygger-vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad bygger vi?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hvad bygger vi?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#om-northwind-databasen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Om Northwind-databasen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vores-applikation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vores applikation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arkitekturoverblik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arkitekturoverblik
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-10-og-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .NET 10 og C#
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspnet-core-web-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASP.NET Core Web API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-en-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er en REST API?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er JSON?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entity-framework-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Framework Core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-containerisering-forklaret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker – Containerisering forklaret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker – Containerisering forklaret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-problemet-docker-lser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er problemet Docker løser?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-en-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er en container?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-vs-virtual-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker vs. Virtual Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-vs-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Image vs. Docker Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvorfor-docker-i-vores-projekt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvorfor Docker i vores projekt?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendercom-cloud-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render.com – Cloud hosting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Render.com – Cloud hosting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternativer-til-rendercom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternativer til Render.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-css-og-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML, CSS og JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionsstyring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionsstyring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versionsstyring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="overblik">Overblik</h1>
+<div class="document-dates-plugin-wrapper document-dates-top"><div class="document-dates-plugin" locale="da"><div class="dd-left"><span class="dd-item" data-tippy-content data-tippy-raw="2025-12-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-25T00:00:00">2025-12-25</time></span><span class="dd-item" data-tippy-content data-tippy-raw="2025-12-25"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2025-12-25T00:00:00">2025-12-25</time></span></div><div class="dd-right"><span class="material-icons" data-icon="doc_author"></span><div class="author-group"><div class="avatar-wrapper" data-name="Michell Cronberg" data-tippy-content data-tippy-raw='&lt;a href="mailto:michell@cronberg.dk"&gt;Michell Cronberg&lt;/a&gt;'><span class="avatar-text"></span><img class="avatar" data-src="" data-email="michell@cronberg.dk"></div></div></div></div></div>
+
+<p>I dette kursus bygger vi en moderne webapplikation fra bunden. Her får du et overblik over de teknologier, vi bruger – og hvorfor.</p>
+<h2 id="hvad-bygger-vi">Hvad bygger vi?</h2>
+<p>Vi udvikler en webapplikation, der simulerer et <strong>ERP-system</strong> (Enterprise Resource Planning) baseret på den klassiske <strong>Northwind-database</strong>.</p>
+<p>Her er links til eksempelkoden:</p>
+<ul>
+<li>Kode: <a href="https://github.com/devcronberg/Northwind.App.Backend">https://github.com/devcronberg/Northwind.App.Backend</a><ul>
+<li>Deployment: <a href="https://northwind-backend-b088.onrender.com">https://northwind-backend-b088.onrender.com</a></li>
+</ul>
+</li>
+<li>Kode: <a href="https://github.com/devcronberg/Northwind.App.Frontend">https://github.com/devcronberg/Northwind.App.Frontend</a><ul>
+<li>Deployment: <a href="https://devcronberg.github.io/Northwind.App.Frontend/">https://devcronberg.github.io/Northwind.App.Frontend/</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="om-northwind-databasen">Om Northwind-databasen</h3>
+<p><strong>Northwind-databasen</strong> er en kendt eksempeldatabase fra Microsoft, som oprindeligt fulgte med Microsoft Access som en del af Microsoft Office 2000. Den repræsenterer data for en fiktiv virksomhed ved navn <strong>“Northwind Traders”</strong>, der handler med specialfødevarer.</p>
+<p><strong>Historien:</strong></p>
+<p>Northwind blev introduceret for at hjælpe udviklere og studerende med at lære at arbejde med databaser ved hjælp af realistiske data. Selvom den ikke længere er inkluderet i de nyeste versioner af Microsoft Access, forbliver Northwind en populær ressource til læring af SQL og databasekoncepter.</p>
+<p><strong>Hvad indeholder databasen?</strong></p>
+<p>Databasen indeholder tabeller for:</p>
+<ul>
+<li><strong>Products</strong> – Produkter Northwind Traders sælger</li>
+<li><strong>Customers</strong> – Kunder der handler med virksomheden</li>
+<li><strong>Orders</strong> – Kundeordrer</li>
+<li><strong>Employees</strong> – Medarbejdere</li>
+<li><strong>Suppliers</strong> – Leverandører</li>
+<li><strong>Categories</strong> – Produktkategorier</li>
+<li><strong>Shippers</strong> – Fragtfirmaer</li>
+</ul>
+<p>Disse tabeller demonstrerer mange almindelige relationelle databasemønstre, herunder et-til-mange og mange-til-mange relationer. For eksempel kan en forespørgsel hente alle produkter i en bestemt kategori, eller finde alle ordrer placeret af en specifik kunde.</p>
+<h3 id="vores-applikation">Vores applikation</h3>
+<p>Applikationen giver brugerne mulighed for at:</p>
+<ul>
+<li><strong>Se og søge</strong> i kunder, produkter, ordrer og kategorier</li>
+<li><strong>Oprette, redigere og slette</strong> data (CRUD operationer)</li>
+<li><strong>Logge ind</strong> med bruger-authentication</li>
+<li><strong>Få overblik</strong> over statistik og nøgletal</li>
+<li><strong>Bruge appen</strong> på både mobil og desktop</li>
+<li><strong>Installere</strong> applikationen som en PWA (Progressive Web App)</li>
+</ul>
+<h2 id="arkitekturoverblik">Arkitekturoverblik</h2>
+<p>Vores applikation består af to hoveddele, der kommunikerer med hinanden:</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph USER["👤 BRUGEREN"]
+        direction LR
+        U1["Mobil eller desktop"]
+    end
+
+    subgraph FRONTEND["🌐 FRONTEND"]
+        direction LR
+        F1["HTML + CSS (Bootstrap) 
+        + JavaScript"]
+        F2["Hostet lokalt 
+        eller på GitHub Pages"]
+        F3["Kan installeres som PWA"]
+    end
+
+    subgraph BACKEND["⚙️ BACKEND"]
+        direction LR
+        B1["ASP.NET Core Web API"]
+        B2["C# / .NET 10"]
+        B3["Hostet lokalt eller 
+        feks på Render.com (Docker)"]
+    end
+
+    subgraph DATABASE["🗄️ DATABASE"]
+        direction LR
+        D1["SQLite
+        Fil-baseret, kører i containeren"]
+
+    end
+
+    USER --&gt;|"Browser"| FRONTEND
+    FRONTEND --&gt;|"REST API (HTTP/JSON)"| BACKEND
+    BACKEND --&gt;|"Entity Framework Core"| DATABASE</code></pre>
+<hr>
+<h2 id="backend">Backend</h2>
+<h3 id="net-10-og-c">.NET 10 og C#</h3>
+<p><strong>.NET</strong> er Microsofts platform til at bygge applikationer. <strong>C#</strong> er programmeringssproget, vi skriver koden i.</p>
+<p><strong>Hvorfor .NET?</strong></p>
+<ul>
+<li>Modent og velafprøvet framework</li>
+<li>Høj ydeevne</li>
+<li>Stort community og god dokumentation</li>
+<li>Gratis og open source</li>
+</ul>
+<h3 id="aspnet-core-web-api">ASP.NET Core Web API</h3>
+<p><strong>ASP.NET Core</strong> er et framework til at bygge webapplikationer. Vi bruger det til at lave en <strong>Web API</strong> – en server, der modtager forespørgsler og sender data tilbage.</p>
+<div class="admonition info">
+<p class="admonition-title">Andre Backend Teknologier</p>
+<p>Der findes mange alternative teknologier til at bygge backend-applikationer – nogle kan endda være bedre egnede til dit specifikke projekt! Her er nogle populære alternativer:</p>
+<p><strong>Node.js</strong> med Express eller NestJS – særligt populært i JavaScript/TypeScript miljøer<br>
+<strong>Python</strong> med Django eller FastAPI – fremragende til data science integration<br>
+<strong>Java</strong> med Spring Boot – industristandard i mange enterprise virksomheder<br>
+<strong>Go</strong> – ekstremt performant til microservices og cloud-native apps<br>
+<strong>Ruby</strong> med Rails – kendt for hurtig udvikling og “convention over configuration”<br>
+<strong>PHP</strong> med Laravel eller Symfony – stadig meget udbredt til webudvikling<br>
+<strong>Rust</strong> med Actix eller Rocket – når performance og sikkerhed er kritisk</p>
+<p>Valget af teknologi afhænger af faktorer som team-kompetencer, projektets krav, eksisterende infrastruktur og økosystem. .NET er et solidt valg med bred anvendelse, men det er altid værd at evaluere alternativer baseret på dit konkrete behov.</p>
+</div>
+<h3 id="hvad-er-en-rest-api">Hvad er en REST API?</h3>
+<p>REST (Representational State Transfer) er en arkitekturstil til at bygge web-tjenester. I praksis betyder det:</p>
+<ul>
+<li>Klienten (frontend) sender HTTP-forespørgsler (GET, POST, PUT, DELETE)</li>
+<li>Serveren (backend) svarer med data i JSON-format</li>
+</ul>
+<h3 id="hvad-er-json">Hvad er JSON?</h3>
+<p>JSON (JavaScript Object Notation) er et tekstformat til at strukturere data. Det er let at læse for både mennesker og computere, og det er standarden for dataudveksling på nettet.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">7999.00</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"inStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>JSON bruger:</p>
+<ul>
+<li><code>{ }</code> til objekter (samling af nøgle-værdi par)</li>
+<li><code>[ ]</code> til lister/arrays</li>
+<li>Nøgler i anførselstegn (<code>"name"</code>)</li>
+<li>Værdier som tekst, tal, true/false eller null</li>
+</ul>
+<p>Eksempel på REST-kald:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET /api/products        → Hent alle produkter
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GET /api/products/1      → Hent produkt med id 1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>POST /api/products       → Opret nyt produkt
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>PUT /api/products/1      → Opdater produkt med id 1
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>DELETE /api/products/1   → Slet produkt med id 1
+</span></code></pre></div>
+<h3 id="entity-framework-core">Entity Framework Core</h3>
+<p><strong>Entity Framework Core (EF Core)</strong> er en ORM (Object-Relational Mapper) til .NET. Den fungerer som et lag mellem din C#-kode og databasen.</p>
+<p><strong>Hvad betyder det i praksis?</strong></p>
+<p>I stedet for at skrive SQL-forespørgsler direkte, arbejder du med C#-objekter:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Uden EF Core (rå SQL)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s">"SELECT * FROM Products WHERE Id = 1"</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// Med EF Core (C#)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">var</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Products</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Fordele ved EF Core:</strong></p>
+<ul>
+<li>Skriver SQL for dig automatisk</li>
+<li>Understøtter mange databaser (SQLite, SQL Server, PostgreSQL, MySQL)</li>
+<li>Migrations – hold styr på ændringer i databasestrukturen</li>
+<li>Stærk typning – færre fejl</li>
+</ul>
+<p><strong>Hvordan virker det?</strong></p>
+<ol>
+<li>Du definerer en <strong>model</strong> (en C#-klasse)</li>
+<li>EF Core opretter den tilsvarende tabel i databasen</li>
+<li>Du bruger <strong>LINQ</strong> til at forespørge data</li>
+</ol>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Model</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Id</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">// Forespørgsel</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kt">var</span><span class="w"> </span><span class="n">billigeProdukter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Products</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+</span></code></pre></div>
+<h3 id="sqlite">SQLite</h3>
+<p><strong>SQLite</strong> er en letvægts database, der gemmer alt i én fil. Den kræver ingen separat server-installation.</p>
+<p><strong>Hvorfor SQLite?</strong></p>
+<ul>
+<li>Ingen opsætning nødvendig</li>
+<li>Perfekt til udvikling og mindre applikationer</li>
+<li>Nemt at distribuere (det er bare en fil)</li>
+<li>Understøttet af Entity Framework Core</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">I produktion</p>
+<p>Til større applikationer ville man typisk bruge PostgreSQL, SQL Server eller MySQL. Men til vores MVP er SQLite perfekt.</p>
+</div>
+<h3 id="docker-containerisering-forklaret">Docker – Containerisering forklaret</h3>
+<p><strong>Docker</strong> kan virke kompliceret i starten, men konceptet er faktisk ret simpelt. </p>
+<h4 id="hvad-er-problemet-docker-lser">Hvad er problemet Docker løser?</h4>
+<p>Før Docker stødte man ofte på problemet: <strong>“Det virker på min computer!”</strong></p>
+<p><strong>Scenariet:</strong></p>
+<ul>
+<li>Du udvikler en applikation på din Windows-maskine</li>
+<li>Du sender koden til en kollega med Mac</li>
+<li>Applikationen virker ikke – forskellige versioner af .NET, manglende biblioteker, forskellige miljøvariabler</li>
+<li>I produktion kører serveren Linux – endnu flere forskelle!</li>
+</ul>
+<h4 id="hvad-er-en-container">Hvad er en container?</h4>
+<p>En <strong>container</strong> er som en komplet pakke, der indeholder:</p>
+<ul>
+<li>Din applikation (kode)</li>
+<li>Runtime (.NET 10)</li>
+<li>Alle nødvendige biblioteker og afhængigheder</li>
+<li>Konfigurationsfiler</li>
+<li>Databasen (i vores tilfælde SQLite-filen)</li>
+</ul>
+<p><strong>Analogi:</strong> Tænk på en container som en flyttekasse:</p>
+<ul>
+<li>Du pakker alt du skal bruge (din app + dependencies) i kassen</li>
+<li>Du kan flytte kassen overalt (Windows, Mac, Linux, cloud)</li>
+<li>Når du åbner kassen, er alt der – præcis som du pakkede det</li>
+</ul>
+<h4 id="docker-vs-virtual-machines">Docker vs. Virtual Machines</h4>
+<table>
+<thead>
+<tr>
+<th>Docker Container</th>
+<th>Virtual Machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Lav (deler host OS)</td>
+<td>❌ Høj (helt separat OS)</td>
+</tr>
+<tr>
+<td>⚡ Hurtig start (sekunder)</td>
+<td>🐌 Langsom start (minutter)</td>
+</tr>
+<tr>
+<td>📦 Lille størrelse (MB)</td>
+<td>💾 Stor størrelse (GB)</td>
+</tr>
+<tr>
+<td>🚀 Moderne standardmetode</td>
+<td>🏛️ Ældre teknologi</td>
+</tr>
+</tbody>
+</table>
+<h4 id="docker-image-vs-docker-container">Docker Image vs. Docker Container</h4>
+<ul>
+<li><strong>Image</strong> = Opskriften (template/blueprint)</li>
+<li><strong>Container</strong> = Den kørende applikation (baseret på opskriften)</li>
+</ul>
+<p><strong>Analogi:</strong></p>
+<ul>
+<li>Image = En kageform</li>
+<li>Container = En færdigbagt kage</li>
+</ul>
+<p>Du kan lave mange kager (containere) fra samme form (image).</p>
+<h4 id="hvorfor-docker-i-vores-projekt">Hvorfor Docker i vores projekt?</h4>
+<ol>
+<li><strong>Konsistens</strong> – Virker ens lokalt og i produktion</li>
+<li><strong>Nem deployment</strong> – Render.com forstår Docker</li>
+<li><strong>Isolation</strong> – Applikationen har sit eget miljø</li>
+<li><strong>Skalerbarhed</strong> – Nemt at køre flere instances</li>
+<li><strong>Standard</strong> – Docker er industri-standard for moderne webudvikling</li>
+</ol>
+<h3 id="rendercom-cloud-hosting">Render.com – Cloud hosting</h3>
+<p><strong>Render.com</strong> er en moderne cloud-platform, der gør det nemt at deploye applikationer.</p>
+<p><strong>Hvorfor Render.com?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Fordel</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🆓 <strong>Gratis tier</strong></td>
+<td>Perfekt til læring og små projekter</td>
+</tr>
+<tr>
+<td>🐳 <strong>Docker support</strong></td>
+<td>Bygger automatisk fra din Dockerfile</td>
+</tr>
+<tr>
+<td>🔄 <strong>Auto-deploy</strong></td>
+<td>Opdaterer automatisk når du pusher til GitHub</td>
+</tr>
+<tr>
+<td>🌍 <strong>Global hosting</strong></td>
+<td>Hurtige servere verden over</td>
+</tr>
+<tr>
+<td>📊 <strong>Logs og monitoring</strong></td>
+<td>Se hvad der sker i din applikation</td>
+</tr>
+<tr>
+<td>🔒 <strong>HTTPS automatisk</strong></td>
+<td>Gratis SSL-certifikater</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deployment-flowet:</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    A["💻 Lokal udvikling"] --&gt;|"git push"| B["📦 GitHub"]
+    B --&gt;|"webhook"| C["🐳 Render.com"]
+    C --&gt;|"bygger"| D["Docker Image"]
+    D --&gt;|"kører"| E["🌐 Live app"]</code></pre>
+<p><strong>Trin for trin:</strong></p>
+<ol>
+<li><strong>Du koder lokalt</strong> – Tester applikationen på din computer</li>
+<li><strong>Commit til Git</strong> – <code>git commit -m "Ny feature"</code></li>
+<li><strong>Push til GitHub</strong> – <code>git push origin main</code></li>
+<li><strong>Render.com notificeres</strong> – Via webhook fra GitHub</li>
+<li><strong>Bygger Docker image</strong> – Render læser din Dockerfile</li>
+<li><strong>Starter container</strong> – Din app er nu live!</li>
+<li><strong>Får en URL</strong> – F.eks. <code>https://min-app.onrender.com</code></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Gratis tier begrænsning</p>
+<p>Render.com’s gratis tier har nogle begrænsninger:</p>
+<ul>
+<li>Containeren “sover” efter 15 minutter uden aktivitet</li>
+<li>Første request efter søvn tager 30-60 sekunder (cold start)</li>
+<li>750 timer/måned gratis (nok til vores projekt)</li>
+</ul>
+<p>Dette er fint til udvikling og læring, men produktionsapps bør bruge en betalt plan.</p>
+</div>
+<h4 id="alternativer-til-rendercom">Alternativer til Render.com</h4>
+<p>Der findes mange andre hosting-platforme:</p>
+<ul>
+<li><strong>Heroku</strong> – Klassisk PaaS, tidligere gratis tier (nu kun betalt)</li>
+<li><strong>Railway</strong> – Moderne, simpel, gratis tier</li>
+<li><strong>Fly.io</strong> – God til Docker, gratis tier</li>
+<li><strong>Azure App Service</strong> – Microsoft’s cloud (ikke gratis, men $200 credit til start)</li>
+<li><strong>AWS ECS/Fargate</strong> – Amazon’s container hosting (kompleks, men kraftfuld)</li>
+<li><strong>Google Cloud Run</strong> – Betaler kun for det du bruger</li>
+</ul>
+<hr>
+<h2 id="frontend">Frontend</h2>
+<h3 id="html-css-og-javascript">HTML, CSS og JavaScript</h3>
+<p>Frontenden er det, brugeren ser og interagerer med. Vi holder det så simpelt som muligt:</p>
+<table>
+<thead>
+<tr>
+<th>Teknologi</th>
+<th>Formål</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTML</strong></td>
+<td>Strukturen på siden (overskrifter, knapper, formularer)</td>
+</tr>
+<tr>
+<td><strong>CSS</strong></td>
+<td>Udseendet (farver, layout, typografi)</td>
+</tr>
+<tr>
+<td><strong>JavaScript</strong></td>
+<td>Interaktivitet og kommunikation med backend</td>
+</tr>
+</tbody>
+</table>
+<h3 id="css-frameworks">CSS Frameworks</h3>
+<p>At skrive al CSS fra bunden er tidskrævende og kræver erfaring med responsive design. Et <strong>CSS framework</strong> giver dig:</p>
+<ul>
+<li><strong>Færdige komponenter</strong> – knapper, formularer, navigation, modals</li>
+<li><strong>Responsivt grid-system</strong> – automatisk tilpasning til mobil/tablet/desktop</li>
+<li><strong>Konsistent design</strong> – professionelt udseende uden at være designer</li>
+<li><strong>Cross-browser kompatibilitet</strong> – virker i alle moderne browsere</li>
+</ul>
+<p><strong>Populære CSS frameworks:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Beskrivelse</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td>Det mest udbredte framework. Stort community, masser af dokumentation og eksempler.</td>
+<td><a href="https://getbootstrap.com/">getbootstrap.com</a></td>
+</tr>
+<tr>
+<td><strong>Tailwind CSS</strong></td>
+<td>Utility-first framework. Giver fuld kontrol, men kræver mere læring.</td>
+<td><a href="https://tailwindcss.com/">tailwindcss.com</a></td>
+</tr>
+<tr>
+<td><strong>Bulma</strong></td>
+<td>Rent CSS (ingen JavaScript). Simpelt og moderne.</td>
+<td><a href="https://bulma.io/">bulma.io</a></td>
+</tr>
+<tr>
+<td><strong>UIkit</strong></td>
+<td>Modulært framework med pæne komponenter og god dokumentation.</td>
+<td><a href="https://getuikit.com/">getuikit.com</a></td>
+</tr>
+<tr>
+<td><strong>Foundation</strong></td>
+<td>Professionelt framework med fokus på fleksibilitet.</td>
+<td><a href="https://get.foundation/">get.foundation</a></td>
+</tr>
+<tr>
+<td><strong>Fomantic UI</strong></td>
+<td>Fork af Semantic UI. Intuitive klassenavne.</td>
+<td><a href="https://fomantic-ui.com/">fomantic-ui.com</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="github-pages">GitHub Pages</h3>
+<p><strong>GitHub Pages</strong> er en gratis hosting-tjeneste fra GitHub. Den er perfekt til statiske websites (HTML, CSS, JavaScript).</p>
+<p><strong>Sådan virker det:</strong></p>
+<ol>
+<li>Du pusher din frontend-kode til et GitHub-repository</li>
+<li>GitHub Pages serverer automatisk filerne som en hjemmeside</li>
+<li>Du får en gratis URL: <code>https://dit-brugernavn.github.io/dit-repo</code></li>
+</ol>
+<hr>
+<h2 id="progressive-web-app-pwa">Progressive Web App (PWA)</h2>
+<p>En <strong>PWA</strong> er en webapp, der kan installeres som en “rigtig” app på telefon eller computer.</p>
+<p><strong>Fordele:</strong></p>
+<ul>
+<li>Kan tilføjes til hjemmeskærmen</li>
+<li>Kører i eget vindue (uden browser-UI)</li>
+<li>Kan virke offline (med service workers)</li>
+<li>Ingen app store nødvendig</li>
+</ul>
+<p><strong>Hvad kræver det?</strong></p>
+<ul>
+<li>En <code>manifest.json</code>-fil med app-metadata</li>
+<li>HTTPS (GitHub Pages giver det automatisk)</li>
+<li>Valgfrit: En service worker til offline-funktionalitet</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>PWA’er er et stort emne i sig selv. For mere information, se <a href="https://developers.google.com/web/progressive-web-apps">Google Developers PWA Guide</a>.
+Her er et eksempel på en PWA : <a href="https://mcronberg.github.io/serialdate/">https://mcronberg.github.io/serialdate/</a></p>
+</div>
+<h2 id="versionsstyring">Versionsstyring</h2>
+<h3 id="git">Git</h3>
+<p><strong>Git</strong> er et versionskontrolsystem. Det holder styr på alle ændringer i din kode, så du kan:</p>
+<ul>
+<li>Se hvad der er ændret og hvornår</li>
+<li>Gå tilbage til tidligere versioner</li>
+<li>Samarbejde med andre uden at overskrive hinandens arbejde</li>
+</ul>
+<h3 id="github">GitHub</h3>
+<p><strong>GitHub</strong> er en platform, der hoster Git-repositories online. Vi bruger GitHub til:</p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kode-hosting</strong></td>
+<td>Opbevar og del kode</td>
+</tr>
+<tr>
+<td><strong>GitHub Pages</strong></td>
+<td>Host frontend gratis</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>Automatisk build og deploy (CI/CD)</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot</strong></td>
+<td>AI-assisteret kodning</td>
+</tr>
+</tbody>
+</table></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.indexes"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopieret til udklipsholderen", "clipboard.copy": "Kopi\u00e9r til udklipsholderen", "search.result.more.one": "1 resultat mere p\u00e5 denne side", "search.result.more.other": "# resultater mere p\u00e5 denne side", "search.result.none": "Ingen resultater fundet", "search.result.one": "1 resultat", "search.result.other": "# resultater", "search.result.placeholder": "Indtast s\u00f8geord", "search.result.term.missing": "Mangler", "select.version": "V\u00e6lg version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../assets/document_dates/user.config.js"></script>
+      
+        <script src="../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../assets/document_dates/core/core.js"></script>
+      
+    
+  </body>
+</html>

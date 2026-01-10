@@ -1,0 +1,20 @@
+/* Custom theme colors - støvet grøn */
+:root {
+    --md-primary-fg-color: #6b8e6b;
+    --md-primary-fg-color--light: #8aab8a;
+    --md-primary-fg-color--dark: #4d6b4d;
+}
+
+/* Header */
+.md-header {
+    background-color: #6b8e6b;
+}
+
+/* Footer */
+.md-footer {
+    background-color: #6b8e6b;
+}
+
+.md-footer-meta {
+    background-color: #4d6b4d;
+}
