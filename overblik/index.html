@@ -704,6 +704,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deployment-og-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment og Automation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment og Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipelines-automatisk-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipelines – Automatisk deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendercom-auto-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render.com Auto-Deploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-deployment-med-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend deployment med GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvorfor-automatisere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvorfor automatisere?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1141,6 +1213,78 @@
     <span class="md-ellipsis">
       
         GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-og-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment og Automation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment og Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipelines-automatisk-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipelines – Automatisk deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendercom-auto-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render.com Auto-Deploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-deployment-med-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend deployment med GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvorfor-automatisere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvorfor automatisere?
       
     </span>
   </a>
@@ -1635,7 +1779,161 @@ Her er et eksempel på en PWA : <a href="https://mcronberg.github.io/serialdate/
 <td>AI-assisteret kodning</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<hr>
+<h2 id="deployment-og-automation">Deployment og Automation</h2>
+<h3 id="pipelines-automatisk-deployment">Pipelines – Automatisk deployment</h3>
+<p>En <strong>pipeline</strong> (også kaldet CI/CD pipeline) er en automatiseret proces, der bygger, tester og deployer din kode uden manuel indgriben.</p>
+<p><strong>Hvad betyder CI/CD?</strong></p>
+<ul>
+<li><strong>CI (Continuous Integration)</strong> – Automatisk integration af kodeændringer</li>
+<li><strong>CD (Continuous Deployment/Delivery)</strong> – Automatisk deployment til produktion</li>
+</ul>
+<p><strong>Navne i forskellige systemer:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Navn på pipeline/workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>GitHub Actions (workflows)</td>
+</tr>
+<tr>
+<td><strong>GitLab</strong></td>
+<td>GitLab CI/CD (pipelines)</td>
+</tr>
+<tr>
+<td><strong>Azure DevOps</strong></td>
+<td>Azure Pipelines</td>
+</tr>
+<tr>
+<td><strong>Jenkins</strong></td>
+<td>Jenkins Pipelines</td>
+</tr>
+<tr>
+<td><strong>CircleCI</strong></td>
+<td>CircleCI Workflows</td>
+</tr>
+<tr>
+<td><strong>Travis CI</strong></td>
+<td>Travis CI Builds</td>
+</tr>
+<tr>
+<td><strong>Bitbucket</strong></td>
+<td>Bitbucket Pipelines</td>
+</tr>
+<tr>
+<td><strong>AWS</strong></td>
+<td>AWS CodePipeline</td>
+</tr>
+</tbody>
+</table>
+<p>Uanset navnet er konceptet det samme: <strong>Automatiser gentagne opgaver i udviklingsprocessen</strong>.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p><strong>GitHub Actions</strong> er GitHubs indbyggede system til at automatisere workflows direkte i dit repository.</p>
+<p><strong>Hvad kan GitHub Actions?</strong></p>
+<ul>
+<li><strong>Automatisk bygge</strong> kode når du pusher til GitHub</li>
+<li><strong>Køre tests</strong> og sikre kvaliteten af koden</li>
+<li><strong>Deploye</strong> til hosting-platforme (GitHub Pages, Render, Azure, osv.)</li>
+<li><strong>Automatiske checks</strong> før pull requests merges</li>
+</ul>
+<p><strong>Hvordan virker det?</strong></p>
+<ol>
+<li>Du opretter en <strong>workflow-fil</strong> i <code>.github/workflows/</code> mappen</li>
+<li>Workflow-filen definerer <strong>hvornår</strong> og <strong>hvad</strong> der skal ske</li>
+<li>GitHub Actions kører automatisk når betingelserne er opfyldt</li>
+</ol>
+<p><strong>Workflow-eksempel (konceptuelt):</strong></p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Trigger: Kør når der pushes til main branch</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">on</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Jobs: Hvad skal der ske?</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">build-and-deploy</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hent koden</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Installér afhængigheder</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Byg projektet</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kør tests</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy til hosting</span>
+</span></code></pre></div>
+<p><strong>Fordele:</strong></p>
+<ul>
+<li>✅ <strong>Gratis for offentlige repos</strong> – Perfekt til open source projekter</li>
+<li>✅ <strong>Indbygget i GitHub</strong> – Ingen ekstra værktøjer nødvendig</li>
+<li>✅ <strong>Store marketplace</strong> – Tusindvis af færdige actions</li>
+<li>✅ <strong>Pålidelig</strong> – Kører automatisk hver gang</li>
+</ul>
+<h3 id="rendercom-auto-deploy">Render.com Auto-Deploy</h3>
+<p><strong>Render.com</strong> integrerer direkte med GitHub og kan automatisk deploye din backend når koden ændres.</p>
+<p><strong>Deployment flow:</strong></p>
+<pre class="mermaid"><code>flowchart LR
+    A["💻 Lokal udvikling"] --&gt;|"git commit"| B["📝 Git"]
+    B --&gt;|"git push"| C["📦 GitHub"]
+    C --&gt;|"webhook"| D["🐳 Render.com"]
+    D --&gt;|"bygger Docker"| E["🏗️ Build"]
+    E --&gt;|"deployer"| F["🌐 Live Backend"]</code></pre>
+<p><strong>Hvad sker der automatisk?</strong></p>
+<ol>
+<li><strong>Du pusher til GitHub</strong> – Din kode er nu på GitHub</li>
+<li><strong>Render.com får besked</strong> – Via en webhook fra GitHub</li>
+<li><strong>Bygger Docker image</strong> – Render læser <code>Dockerfile</code> og bygger</li>
+<li><strong>Starter ny container</strong> – Den gamle container stoppes, den nye startes</li>
+<li><strong>Health check</strong> – Render verificerer at appen kører</li>
+<li><strong>Traffic omdirigeres</strong> – Brugere får den nye version</li>
+</ol>
+<p><strong>Dette sker alt sammen automatisk</strong> uden at du skal gøre noget!</p>
+<h3 id="frontend-deployment-med-github-actions">Frontend deployment med GitHub Actions</h3>
+<p>For vores frontend bruger vi GitHub Actions til at deploye til GitHub Pages.</p>
+<p><strong>Processen:</strong></p>
+<ol>
+<li><strong>Push til GitHub</strong> – Du pusher dine ændringer</li>
+<li><strong>GitHub Actions workflow kører</strong> – Bygger frontend-filerne</li>
+<li><strong>Deployer til GitHub Pages</strong> – Publicerer på <code>username.github.io/repo</code></li>
+</ol>
+<p><strong>Hvad gør workflow’en?</strong></p>
+<ul>
+<li>Installerer afhængigheder</li>
+<li>Bygger/minifier JavaScript og CSS</li>
+<li>Kopierer filer til <code>gh-pages</code> branch</li>
+<li>GitHub Pages serverer automatisk filerne</li>
+</ul>
+<p><strong>Fordele:</strong></p>
+<ul>
+<li>Ingen manuel FTP-upload</li>
+<li>Ingen manuel build-proces</li>
+<li>Altid den nyeste version online</li>
+<li>Historie over alle deployments</li>
+</ul>
+<h3 id="hvorfor-automatisere">Hvorfor automatisere?</h3>
+<p><strong>Før automation:</strong></p>
+<ol>
+<li>Byg projektet manuelt</li>
+<li>Kør tests manuelt</li>
+<li>Upload filer til server manuelt</li>
+<li>Tjek at alt virker manuelt</li>
+<li>Gentag ved hver ændring… 😫</li>
+</ol>
+<p><strong>Efter automation:</strong></p>
+<ol>
+<li><code>git push</code></li>
+<li>✅ Færdig! Alt andet sker automatisk 🎉</li>
+</ol>
+<p><strong>Resultatet:</strong></p>
+<ul>
+<li>🚀 <strong>Hurtigere deployment</strong> – Fra minutter til sekunder</li>
+<li>🐛 <strong>Færre fejl</strong> – Ingen glemte filer eller trin</li>
+<li>🔄 <strong>Hyppigere opdateringer</strong> – Nemt at deploye små ændringer</li>
+<li>✅ <strong>Bedre kvalitet</strong> – Tests køres altid før deployment</li>
+<li>🕒 <strong>Mere tid til kodning</strong> – Mindre tid på deployment</li>
+</ul></div>
 
 
 
