@@ -1,5 +1,8 @@
 nav:
   - Forside: index.md
   - Opsætning: setup.md
-  - Overblik: overblik.md
+  - Session 1 Overblik: overblik.md
+  - Session 2 Backend: backend.md
+  - Session 3 Frontend: frontend.md
+  - Links og Ressourcer: links.md
   

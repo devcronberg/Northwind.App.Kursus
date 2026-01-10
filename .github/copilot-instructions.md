@@ -1,6 +1,26 @@
 Instruktioner til Copilot
 
-Dette er en samling af artikler i md-format til MkDocs Material's blog format. Artikler er skrevet på dansk og de alle skrevet af mig. De er support artikler til et webinar for Prosa afholdt i 2026 med følende beskrivelse:
+Dette er en samling af artikler i md-format til MkDocs Material's blog format. Artikler er skrevet på dansk og de alle skrevet af mig. 
+
+## Skrivestil
+
+Brug en venlig og imødekommende tone, som om du forklarer ting til en kollega eller ven, der er interesseret i emnet. Undgå at være for formel eller akademisk. Brug dagligdags sprog og undgå unødvendigt komplekse ord eller sætninger.
+
+Undgå brugering af "vi" eller "os". Fokusér på at formidle informationen klart og objektivt uden at inkludere dig selv som forfatter i teksten.
+
+Brug ikke "---" til at indikere sektioner, da dette bruges til andre formål i MkDocs Material.
+
+Start alle sider med
+
+---
+created: 2026-01-10
+modified: 2026-01-10
+author: Michell Cronberg
+---
+
+## Mål
+
+De er support artikler til et webinar for Prosa afholdt i 2026 med følende beskrivelse:
 
 Byg en moderne webapplikation med C#
 

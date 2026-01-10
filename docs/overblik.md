@@ -7,8 +7,48 @@ author: Michell Cronberg
 
 I dette kursus bygger vi en moderne webapplikation fra bunden. Her får du et overblik over de teknologier, vi bruger – og hvorfor.
 
-!!! info "For begyndere"
-    Hvis du er ny til webudvikling, kan det virke som mange teknologier. Bare rolig – vi tager dem én ad gangen, og du vil hurtigt se, hvordan de spiller sammen.
+## Hvad bygger vi?
+
+Vi udvikler en webapplikation, der simulerer et **ERP-system** (Enterprise Resource Planning) baseret på den klassiske **Northwind-database**.
+
+Her er links til eksempelkoden:
+
+- https://github.com/devcronberg/Northwind.App.Backend
+  - https://northwind-backend-b088.onrender.com
+- https://github.com/devcronberg/Northwind.App.Frontend
+
+### Om Northwind-databasen
+
+**Northwind-databasen** er en kendt eksempeldatabase fra Microsoft, som oprindeligt fulgte med Microsoft Access som en del af Microsoft Office 2000. Den repræsenterer data for en fiktiv virksomhed ved navn **"Northwind Traders"**, der handler med specialfødevarer.
+
+**Historien:**
+
+Northwind blev introduceret for at hjælpe udviklere og studerende med at lære at arbejde med databaser ved hjælp af realistiske data. Selvom den ikke længere er inkluderet i de nyeste versioner af Microsoft Access, forbliver Northwind en populær ressource til læring af SQL og databasekoncepter.
+
+**Hvad indeholder databasen?**
+
+Databasen indeholder tabeller for:
+
+- **Products** – Produkter Northwind Traders sælger
+- **Customers** – Kunder der handler med virksomheden
+- **Orders** – Kundeordrer
+- **Employees** – Medarbejdere
+- **Suppliers** – Leverandører
+- **Categories** – Produktkategorier
+- **Shippers** – Fragtfirmaer
+
+Disse tabeller demonstrerer mange almindelige relationelle databasemønstre, herunder et-til-mange og mange-til-mange relationer. For eksempel kan en forespørgsel hente alle produkter i en bestemt kategori, eller finde alle ordrer placeret af en specifik kunde.
+
+### Vores applikation
+
+Applikationen giver brugerne mulighed for at:
+
+- **Se og søge** i kunder, produkter, ordrer og kategorier
+- **Oprette, redigere og slette** data (CRUD operationer)
+- **Logge ind** med bruger-authentication
+- **Få overblik** over statistik og nøgletal
+- **Bruge appen** på både mobil og desktop
+- **Installere** applikationen som en PWA (Progressive Web App)
 
 ## Arkitekturoverblik
 
@@ -23,8 +63,10 @@ flowchart TB
     
     subgraph FRONTEND["🌐 FRONTEND"]
         direction LR
-        F1["HTML + CSS (Bootstrap) + JavaScript"]
-        F2["Hostet lokalt eller på GitHub Pages"]
+        F1["HTML + CSS (Bootstrap) 
+        + JavaScript"]
+        F2["Hostet lokalt 
+        eller på GitHub Pages"]
         F3["Kan installeres som PWA"]
     end
     
@@ -32,13 +74,15 @@ flowchart TB
         direction LR
         B1["ASP.NET Core Web API"]
         B2["C# / .NET 10"]
-        B3["Hostet lokalt eller feks på Render.com (Docker)"]
+        B3["Hostet lokalt eller 
+        feks på Render.com (Docker)"]
     end
     
     subgraph DATABASE["🗄️ DATABASE"]
         direction LR
-        D1["SQLite"]
-        D2["Fil-baseret, kører i containeren"]
+        D1["SQLite
+        Fil-baseret, kører i containeren"]
+        
     end
     
     USER -->|"Browser"| FRONTEND
@@ -64,6 +108,19 @@ flowchart TB
 ### ASP.NET Core Web API
 
 **ASP.NET Core** er et framework til at bygge webapplikationer. Vi bruger det til at lave en **Web API** – en server, der modtager forespørgsler og sender data tilbage.
+
+!!! info "Andre Backend Teknologier"
+    Der findes mange alternative teknologier til at bygge backend-applikationer – nogle kan endda være bedre egnede til dit specifikke projekt! Her er nogle populære alternativer:
+    
+    **Node.js** med Express eller NestJS – særligt populært i JavaScript/TypeScript miljøer  
+    **Python** med Django eller FastAPI – fremragende til data science integration  
+    **Java** med Spring Boot – industristandard i mange enterprise virksomheder  
+    **Go** – ekstremt performant til microservices og cloud-native apps  
+    **Ruby** med Rails – kendt for hurtig udvikling og "convention over configuration"  
+    **PHP** med Laravel eller Symfony – stadig meget udbredt til webudvikling  
+    **Rust** med Actix eller Rocket – når performance og sikkerhed er kritisk
+    
+    Valget af teknologi afhænger af faktorer som team-kompetencer, projektets krav, eksisterende infrastruktur og økosystem. .NET er et solidt valg med bred anvendelse, men det er altid værd at evaluere alternativer baseret på dit konkrete behov.
 
 **Hvad er en REST API?**
 
@@ -159,18 +216,120 @@ var billigeProdukter = context.Products
 !!! note "I produktion"
     Til større applikationer ville man typisk bruge PostgreSQL, SQL Server eller MySQL. Men til vores MVP er SQLite perfekt.
 
-### Docker og Render.com
+### Docker – Containerisering forklaret
 
-**Docker** er en teknologi, der pakker din applikation sammen med alt, den har brug for (runtime, biblioteker osv.) i en **container**. Det sikrer, at applikationen kører ens overalt.
+**Docker** kan virke kompliceret i starten, men konceptet er faktisk ret simpelt. 
 
-**Render.com** er en cloud-platform, der kan hoste vores Docker-container. De har et gratis tier, der er perfekt til læring og små projekter.
+#### Hvad er problemet Docker løser?
 
-**Flowet:**
+Før Docker stødte man ofte på problemet: **"Det virker på min computer!"**
 
-1. Vi skriver kode lokalt
-2. Vi pusher til GitHub
-3. Render.com bygger automatisk en Docker-container
-4. Containeren kører på Render's servere
+**Scenariet:**
+
+- Du udvikler en applikation på din Windows-maskine
+- Du sender koden til en kollega med Mac
+- Applikationen virker ikke – forskellige versioner af .NET, manglende biblioteker, forskellige miljøvariabler
+- I produktion kører serveren Linux – endnu flere forskelle!
+
+#### Hvad er en container?
+
+En **container** er som en komplet pakke, der indeholder:
+
+- Din applikation (kode)
+- Runtime (.NET 10)
+- Alle nødvendige biblioteker og afhængigheder
+- Konfigurationsfiler
+- Databasen (i vores tilfælde SQLite-filen)
+
+**Analogi:** Tænk på en container som en flyttekasse:
+
+- Du pakker alt du skal bruge (din app + dependencies) i kassen
+- Du kan flytte kassen overalt (Windows, Mac, Linux, cloud)
+- Når du åbner kassen, er alt der – præcis som du pakkede det
+
+#### Docker vs. Virtual Machines
+
+| Docker Container          | Virtual Machine            |
+| ------------------------- | -------------------------- |
+| ✅ Lav (deler host OS)     | ❌ Høj (helt separat OS)    |
+| ⚡ Hurtig start (sekunder) | 🐌 Langsom start (minutter) |
+| 📦 Lille størrelse (MB)    | 💾 Stor størrelse (GB)      |
+| 🚀 Moderne standardmetode  | 🏛️ Ældre teknologi          |
+
+#### Docker Image vs. Docker Container
+
+- **Image** = Opskriften (template/blueprint)
+- **Container** = Den kørende applikation (baseret på opskriften)
+
+**Analogi:**
+
+- Image = En kageform
+- Container = En færdigbagt kage
+
+Du kan lave mange kager (containere) fra samme form (image).
+
+#### Hvorfor Docker i vores projekt?
+
+1. **Konsistens** – Virker ens lokalt og i produktion
+2. **Nem deployment** – Render.com forstår Docker
+3. **Isolation** – Applikationen har sit eget miljø
+4. **Skalerbarhed** – Nemt at køre flere instances
+5. **Standard** – Docker er industri-standard for moderne webudvikling
+
+### Render.com – Cloud hosting
+
+**Render.com** er en moderne cloud-platform, der gør det nemt at deploye applikationer.
+
+**Hvorfor Render.com?**
+
+| Fordel                   | Beskrivelse                                   |
+| ------------------------ | --------------------------------------------- |
+| 🆓 **Gratis tier**        | Perfekt til læring og små projekter           |
+| 🐳 **Docker support**     | Bygger automatisk fra din Dockerfile          |
+| 🔄 **Auto-deploy**        | Opdaterer automatisk når du pusher til GitHub |
+| 🌍 **Global hosting**     | Hurtige servere verden over                   |
+| 📊 **Logs og monitoring** | Se hvad der sker i din applikation            |
+| 🔒 **HTTPS automatisk**   | Gratis SSL-certifikater                       |
+
+**Deployment-flowet:**
+
+```mermaid
+flowchart TB
+    A["💻 Lokal udvikling"] -->|"git push"| B["📦 GitHub"]
+    B -->|"webhook"| C["🐳 Render.com"]
+    C -->|"bygger"| D["Docker Image"]
+    D -->|"kører"| E["🌐 Live app"]
+```
+
+**Trin for trin:**
+
+1. **Du koder lokalt** – Tester applikationen på din computer
+2. **Commit til Git** – `git commit -m "Ny feature"`
+3. **Push til GitHub** – `git push origin main`
+4. **Render.com notificeres** – Via webhook fra GitHub
+5. **Bygger Docker image** – Render læser din Dockerfile
+6. **Starter container** – Din app er nu live!
+7. **Får en URL** – F.eks. `https://min-app.onrender.com`
+
+!!! warning "Gratis tier begrænsning"
+    Render.com's gratis tier har nogle begrænsninger:
+    
+    - Containeren "sover" efter 15 minutter uden aktivitet
+    - Første request efter søvn tager 30-60 sekunder (cold start)
+    - 750 timer/måned gratis (nok til vores projekt)
+    
+    Dette er fint til udvikling og læring, men produktionsapps bør bruge en betalt plan.
+
+#### Alternativer til Render.com
+
+Der findes mange andre hosting-platforme:
+
+- **Heroku** – Klassisk PaaS, tidligere gratis tier (nu kun betalt)
+- **Railway** – Moderne, simpel, gratis tier
+- **Fly.io** – God til Docker, gratis tier
+- **Azure App Service** – Microsoft's cloud (ikke gratis, men $200 credit til start)
+- **AWS ECS/Fargate** – Amazon's container hosting (kompleks, men kraftfuld)
+- **Google Cloud Run** – Betaler kun for det du bruger
 
 ---
 
@@ -206,8 +365,6 @@ At skrive al CSS fra bunden er tidskrævende og kræver erfaring med responsive 
 | **Foundation**   | Professionelt framework med fokus på fleksibilitet.                                 | [get.foundation](https://get.foundation/)     |
 | **Fomantic UI**  | Fork af Semantic UI. Intuitive klassenavne.                                         | [fomantic-ui.com](https://fomantic-ui.com/)   |
 
-!!! note "Beslutning ikke låst"
-    Vi har endnu ikke endeligt besluttet, hvilket CSS framework vi bruger i kurset. Bootstrap er et godt udgangspunkt, men vi kan også overveje alternativer som Bulma eller Fomantic UI afhængigt af, hvad der passer bedst til vores applikation.
 
 ### GitHub Pages
 
@@ -238,7 +395,9 @@ En **PWA** er en webapp, der kan installeres som en "rigtig" app på telefon ell
 - HTTPS (GitHub Pages giver det automatisk)
 - Valgfrit: En service worker til offline-funktionalitet
 
----
+!!! info
+    PWA'er er et stort emne i sig selv. For mere information, se [Google Developers PWA Guide](https://developers.google.com/web/progressive-web-apps).
+    Her er et eksempel på en PWA : https://mcronberg.github.io/serialdate/
 
 ## Versionsstyring
 
@@ -261,22 +420,5 @@ En **PWA** er en webapp, der kan installeres som en "rigtig" app på telefon ell
 | **GitHub Actions** | Automatisk build og deploy (CI/CD) |
 | **GitHub Copilot** | AI-assisteret kodning              |
 
----
 
-## Opsummering
 
-| Lag                 | Teknologi                         | Hosting              |
-| ------------------- | --------------------------------- | -------------------- |
-| **Frontend**        | HTML, CSS (Bootstrap), JavaScript | GitHub Pages         |
-| **Backend**         | .NET 10, C#, ASP.NET Core Web API | Render.com (Docker)  |
-| **Database**        | SQLite                            | I Docker-containeren |
-| **Versionsstyring** | Git + GitHub                      | -                    |
-
-```mermaid
-flowchart LR
-    A["🌐 Frontend<br/>GitHub Pages"] -->|"REST API"| B["⚙️ Backend<br/>Render.com"]
-    B -->|"SQL"| C["🗄️ Database<br/>SQLite"]
-```
-
-!!! success "Simpelt men kraftfuldt"
-    Denne stack er enkel at forstå og gratis at hoste – men den lærer dig de samme koncepter, som bruges i store produktionsapplikationer.

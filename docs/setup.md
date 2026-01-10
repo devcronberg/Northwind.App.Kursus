@@ -124,6 +124,36 @@ git config --global user.name "Dit Navn"
 git config --global user.email "din@email.dk"
 ```
 
+## Docker Desktop (Valgfrit)
+
+**Docker Desktop** er ikke påkrævet for at deltage i kurset, men det kan være en god måde at forstå Docker-konceptet på ved at køre containere lokalt.
+
+!!! info "Hvorfor valgfrit?"
+    I kurset bruger vi Render.com til at hoste vores Docker-containere i skyen. Du behøver derfor ikke have Docker installeret lokalt. Men hvis du vil eksperimentere med Docker på din egen computer eller forstå containerisering bedre, er Docker Desktop et godt værktøj.
+
+### Installation
+
+1. Gå til [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/)
+2. Download Docker Desktop til dit styresystem (Windows, macOS eller Linux)
+3. Kør installationsfilen og følg vejledningen
+4. Start Docker Desktop efter installationen
+
+### Verificer installationen
+
+Åbn en terminal og skriv:
+
+```bash
+docker --version
+```
+
+Du skulle se noget i stil med `Docker version 24.0.7`.
+
+!!! note "Hvad kan du bruge Docker Desktop til?"
+    - Køre backend-applikationen lokalt i en container
+    - Teste Dockerfile før deployment
+    - Lære om containerisering hands-on
+    - Køre flere services lokalt (database, cache, etc.)
+
 ## GitHub konto
 
 **GitHub** er en platform til at hoste og samarbejde om kode. Vi bruger GitHub til at dele kode og materiale i kurset.
@@ -188,17 +218,3 @@ Her er de mest populære muligheder:
 !!! tip "Gratis at prøve"
     Alle tre tjenester har gratis versioner, så du kan prøve dem og se, hvilken du foretrækker. Det kræver blot oprettelse af en konto.
 
-## Opsummering
-
-Her er en tjekliste over alt, du skal have installeret:
-
-- [ ] **.NET 10 SDK** - udviklingsplatform
-- [ ] **Visual Studio Code** - kodeeditor
-- [ ] **C# Dev Kit** extension i VS Code
-- [ ] **Git** - versionskontrol
-- [ ] **GitHub konto** - hosting af git/kode
-- [ ] **GitHub Copilot** abonnement (valgfrit men anbefalet)
-- [ ] **Alternativ AI-assistent** (valgfrit)
-
-!!! success "Klar til at kode!"
-    Når du har installeret alt ovenstående, er du klar til at følge med i kurset. Vi ses til første session!
