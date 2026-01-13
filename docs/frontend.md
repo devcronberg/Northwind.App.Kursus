@@ -1269,6 +1269,244 @@ async function fetchWithTimeout(url, options = {}, timeout = 30000) {
 
 ---
 
+## Progressive Web App (PWA)
+
+Applikationen er bygget som en **Progressive Web App**, hvilket betyder at den kan installeres på både desktop og mobile enheder og fungere som en native app.
+
+### Hvad er en PWA?
+
+En **Progressive Web App** er en webapplikation, der bruger moderne web-teknologier til at levere en app-lignende oplevelse:
+
+**Fordele:**
+- 📱 **Installerbar** - Kan installeres på hjemmeskærmen
+- 🚀 **Hurtig** - Optimeret loading og performance
+- 🎨 **App-lignende** - Åbnes i eget vindue uden browser UI
+- 🔔 **Engagerende** - Kan bruge push notifications (hvis implementeret)
+- 📴 **Offline** - Kan fungere uden internetforbindelse (hvis cache implementeret)
+- 🔄 **Altid opdateret** - Automatisk opdateringer via service worker
+
+### PWA Krav
+
+For at være en valid PWA skal applikationen opfylde:
+
+1. ✅ **HTTPS** - Serveret over sikker forbindelse
+2. ✅ **Web App Manifest** - `manifest.json` fil
+3. ✅ **Service Worker** - Registreret og aktiv
+4. ✅ **Responsive** - Fungerer på alle skærmstørrelser
+5. ✅ **App Icons** - Ikoner i forskellige størrelser
+
+### Installation af PWA
+
+**På Desktop (Chrome/Edge):**
+
+1. Åbn applikationen i browseren
+2. Klik på install-ikonet i adresselinjen (⊕ symbol)
+3. Eller klik på "..." menu → "Install Northwind Traders"
+4. Appen åbnes i et selvstændigt vindue uden browser chrome
+
+**På Mobile (Android):**
+
+1. Åbn applikationen i Chrome
+2. Tryk på menu (⋮) → "Add to Home Screen"
+3. Eller følg install-prompt nederst på siden
+4. Appen vises som et ikon på hjemmeskærmen
+
+**På Mobile (iOS):**
+
+1. Åbn applikationen i Safari
+2. Tryk "Share" knappen (◻↑)
+3. Vælg "Add to Home Screen"
+4. Appen vises som et ikon på hjemmeskærmen
+
+### PWA Filer
+
+**manifest.json:**
+```json
+{
+    "name": "Northwind Traders",
+    "short_name": "Northwind",
+    "description": "Customer management system",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#2185d0",
+    "theme_color": "#2185d0",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "./assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "./assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
+```
+
+**Manifest properties:**
+- `name` - Fuldt applikationsnavn (bruges ved installation)
+- `short_name` - Kort navn (bruges under app ikon)
+- `start_url` - URL der åbnes når appen startes
+- `display: "standalone"` - Åbner uden browser UI
+- `theme_color` - Farve til status bar og UI
+- `background_color` - Splash screen baggrund
+- `icons` - App ikoner i forskellige størrelser
+
+**Service Worker (sw.js):**
+```javascript
+// Minimal Service Worker for PWA installation
+self.addEventListener('install', () => {
+    console.log('Service Worker: Installed');
+    self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+    console.log('Service Worker: Activated');
+    event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener('fetch', (event) => {
+    // Pass through to network (no caching)
+    event.respondWith(fetch(event.request));
+});
+```
+
+**Service Worker lifecycle:**
+1. **Install** - Downloades og installeres
+2. **Activate** - Aktiveres og tager kontrol
+3. **Fetch** - Intercepter network requests
+
+**Registrering i app.js:**
+```javascript
+// Register Service Worker
+async function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register('./sw.js');
+            console.log('✅ Service Worker registered:', registration);
+        } catch (error) {
+            console.error('❌ Service Worker registration failed:', error);
+        }
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    registerServiceWorker();
+});
+```
+
+### PWA Meta Tags
+
+**HTML head-sektion:**
+```html
+<head>
+    <!-- Basic Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Northwind Traders Customer Dashboard">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme Color (Android) -->
+    <meta name="theme-color" content="#2185d0">
+    
+    <!-- Mobile Web App Capable (Android) -->
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Apple Mobile Web App (iOS) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <title>Northwind Traders - Customer Dashboard</title>
+</head>
+```
+
+**Meta tag forklaring:**
+- `theme-color` - Browser toolbar farve (Android/Chrome)
+- `mobile-web-app-capable` - Aktivér "Add to Home Screen" (Android)
+- `apple-mobile-web-app-capable` - Aktivér webapp mode (iOS)
+- `apple-mobile-web-app-status-bar-style` - iOS status bar styling
+
+### App Ikoner
+
+**Forskellige størrelser:**
+- `favicon.ico` - 32x32 - Browser tab
+- `favicon.svg` - Scalable - Moderne browsere
+- `icon-192.png` - 192x192 - Android, PWA minimum
+- `icon-512.png` - 512x512 - Android, PWA anbefalet
+- `apple-touch-icon.png` - 180x180 - iOS
+
+**Icon design best practices:**
+- Simple, recognizable designs
+- Solid background (ingen transparens for maskable)
+- Center logo med safe zone (80% af ikon)
+- Test på både lys og mørk baggrund
+
+### PWA Begrænsninger i Dette Projekt
+
+⚠️ **Ingen Offline Funktionalitet**
+
+Vores implementation har en **minimal service worker** uden caching:
+- ✅ Installbar på alle platforme
+- ✅ Åbner i eget vindue
+- ✅ App-lignende oplevelse
+- ❌ Ingen offline support
+- ❌ Ingen cache af assets
+- ❌ Kræver aktiv internetforbindelse
+
+**Hvorfor ingen cache?**
+
+Dette projekt fokuserer på grundlæggende PWA-koncepter. En fuld cache-strategi ville kræve:
+- Cache af HTML, CSS, JavaScript files
+- Cache af API responses
+- Update strategier (Cache First, Network First, Stale While Revalidate)
+- Version management af cached assets
+- Håndtering af cache-størrelse
+
+### PWA vs Native Apps
+
+| Feature           | PWA                    | Native App       |
+| ----------------- | ---------------------- | ---------------- |
+| Installation      | Via browser            | App Store        |
+| Distribution      | URL link               | App Store review |
+| Opdateringer      | Automatisk             | App Store update |
+| Størrelse         | Meget lille            | Større download  |
+| Offline           | Kan implementeres      | Standard         |
+| Platform          | Cross-platform         | Per platform     |
+| Udvikling         | Web tech (HTML/CSS/JS) | Native code      |
+| Adgang til device | Begrænset              | Fuld adgang      |
+| Performance       | God                    | Bedre            |
+| Cost              | Lavere                 | Højere           |
+
+**Hvornår vælge PWA:**
+- Cross-platform deployment vigtig
+- Hurtig time-to-market
+- Frequent updates nødvendige
+- Begrænset budget
+- Web-baseret content
+
+**Hvornår vælge Native:**
+- Høj performance kritisk
+- Dyb device integration nødvendig
+- Kompleks offline funktionalitet
+- Platform-specifik UI vigtig
+- App Store distribution foretrukket
+
+---
+
 ## Code Quality Tools
 
 ### ESLint - JavaScript Linting
