@@ -1,3 +1,8 @@
+---
+created: 2026-01-10
+modified: 2026-01-10
+author: Michell Cronberg
+---
 # Links og Ressourcer
 
 Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmaterialet.

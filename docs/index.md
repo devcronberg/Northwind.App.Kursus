@@ -45,3 +45,4 @@ Applikationen bliver responsiv og kan bruges på både mobil og desktop – og k
 ## Navigation
 
 Brug menuen til venstre for at navigere til de enkelte artikler og supportmateriale til hver session.
+
