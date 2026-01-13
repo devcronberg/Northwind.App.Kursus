@@ -22,6 +22,10 @@ Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmateria
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - Download Docker Desktop (valgfrit)
 - [Docker Documentation](https://docs.docker.com/) - Officiel Docker dokumentation
 
+### API Værktøjer
+- [Postman](https://www.postman.com/downloads/) - API platform til at bygge og bruge API'er
+- [cURL](https://curl.se/) - Kommandolinjeværktøj til dataoverførsel (Windows, macOS, Linux)
+
 ## Backend Ressourcer
 
 ### Eksempel Kode

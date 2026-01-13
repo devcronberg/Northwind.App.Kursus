@@ -565,5 +565,13 @@ For vores frontend bruger vi GitHub Actions til at deploye til GitHub Pages.
 - ✅ **Bedre kvalitet** – Tests køres altid før deployment
 - 🕒 **Mere tid til kodning** – Mindre tid på deployment
 
+## Det kan du lege med til næste gang
 
+- Få installeret de forskellige værktøjer på din computer (Git, Docker, .NET SDK)
+- Opret en GitHub-konto, hvis du ikke har en
+- Prøv at lege lidt med rest-api'er ved hjælp af Postman eller cURL eller rest client extensions i VS Code
+- Prøv at skrive lidt kode i vs Code der taler med vores rest api
+    - Måske lidt Python eller JavaScript eller C#
+- Læs lidt om Docker og prøv at køre en simpel container
+    - F.eks. `docker run hello-world` eller `docker run -d -p 8080:80 nginx`
 
