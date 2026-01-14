@@ -12,7 +12,7 @@ Før vi går i gang med kurset, skal du have installeret nogle værktøjer på d
 
 ## .NET 10 SDK
 
-**.NET** er den platform, vi bruger til at bygge vores webapplikation på serveren. Du skal installere **.NET 10 SDK** (Software Development Kit).
+**.NET** er den platform, vi bruger til at bygge vores webapplikation på serveren (backend). Du skal installere **.NET 10 SDK** (Software Development Kit).
 
 ### Installation
 
@@ -67,18 +67,6 @@ Til backend-udvikling med C# og ASP.NET Core anbefales følgende extensions:
 
 !!! tip "REST Client"
     Med REST Client kan du oprette `.http` eller `.rest` filer med HTTP requests og køre dem direkte i VS Code. Perfekt til at teste din API under udvikling!
-    
-    Eksempel:
-    ```http
-    ### Login
-    POST http://localhost:5000/api/auth/login
-    Content-Type: application/json
-    
-    {
-      "username": "admin",
-      "password": "admin"
-    }
-    ```
 
 ### Frontend Extensions
 
@@ -198,6 +186,14 @@ Du skulle se noget i stil med `Docker version 24.0.7`.
     - Lære om containerisering hands-on
     - Køre flere services lokalt (database, cache, etc.)
 
+Et godt eksempel er at køre HTTPBin lokalt i en container:
+
+```bash
+docker run -d -p 8080:80 kennethreitz/httpbin
+```
+
+og så starte din browser og gå til `http://localhost:8080` for at se HTTPBin i aktion. Du behøver ikke installere nogen dependencies – alt kører inde i containeren - du behøver ikke engang vide hvilke teknologier der er brugt under motorhjelmen! Alt hvad du skal bruge er Docker samt et image (her `kennethreitz/httpbin`).
+
 ## GitHub konto
 
 **GitHub** er en platform til at hoste og samarbejde om kode. Vi bruger GitHub til at dele kode og materiale i kurset.
@@ -240,6 +236,7 @@ Nedenstående extensions er muligvis allerede installeret som en del af VS Code 
 !!! warning "Husk at logge ind"
     Første gang du bruger Copilot i VS Code, skal du logge ind med din GitHub-konto. Følg vejledningen i VS Code.
 
+Hvis du har tid bør du læse [dokumentationen for GitHub Copilot i VS Code](https://code.visualstudio.com/docs/copilot/overview) for at få mest muligt ud af værktøjet. Se også https://github.com/github/awesome-copilot for en liste med ressourcer og tips.
 
 
 ## Alternative AI-assistenter

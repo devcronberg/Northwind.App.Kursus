@@ -22,6 +22,8 @@ Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmateria
 - [Git for Windows](https://git-scm.com/install/windows) - Git til Windows
 - [GitHub](https://github.com/) - Opret GitHub konto
 - [GitHub Copilot Settings](https://github.com/settings/copilot) - Aktiver GitHub Copilot
+- [Dokumentationen for GitHub Copilot i VS Code](https://code.visualstudio.com/docs/copilot/overview) - Dokumentation for GitHub Copilot i VS Code
+- [Awesome Copilot Resources](https://github.com/github/awesome-copilot) - Liste med ressourcer og tips
 
 ### Docker
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - Download Docker Desktop (valgfrit)

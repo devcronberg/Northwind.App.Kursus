@@ -34,13 +34,10 @@ Kurset afholdes over tre online sessioner à to timer – torsdage fra kl. 17.00
 Undervejs kommer vi omkring emner som:
 
 - Datamodellering og webarkitektur
-- Brugeroplevelse og frontend
 - Datahåndtering med Entity Framework Core
+- Brugeroplevelse og frontend
 - Git/GitHub workflow
 - Progressive Web Apps (PWA)
-- AI-integration i webapplikationer
-
-Applikationen bliver responsiv og kan bruges på både mobil og desktop – og kan installeres som en app direkte fra hjemmeskærmen.
 
 ## Navigation
 

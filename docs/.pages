@@ -1,6 +1,6 @@
 nav:
   - Forside: index.md
-  - Opsætning: setup.md
+  - Session 1 Opsætning: setup.md
   - Session 1 Overblik: overblik.md
   - Session 2 Backend: backend.md
   - Session 3 Frontend: frontend.md
