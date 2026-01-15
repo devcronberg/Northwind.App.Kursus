@@ -62,4 +62,4 @@ Brug denne formular til at stille spørgsmål eller komme med feedback. Jeg spø
 
 Jeg ser frem til at deltage i Prosa's C# kursus, der starter i dag. Du skriver at vi skal bruge standard (Next) hele vejen ved Git Inslallation, de anbefaler man bruger anden editor, fx Visual Studio Code, i stedet for standard Vim. Er VS Code ikke bedre ?
 
-> Jo - VS Code er absolut bedre end alternativerne efter min mening. Men det er jo nærmest religion om man er til VIM, Notepad++, VSC, Notepad eller lign. I sidste ende er det jo bare tekst, men de muligheder VSC til toil rådighed gør det hele meget nemmere.
+> Jo - VS Code er absolut bedre end alternativerne efter min mening. Men det er jo nærmest religion om man er til VIM, Notepad++, VSC, Notepad eller lign. I sidste ende er det jo bare tekst, men de muligheder VSC stiller til rådighed gør det hele meget nemmere.
