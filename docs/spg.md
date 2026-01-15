@@ -1,6 +1,6 @@
 ---
-created: 2026-01-10
-modified: 2026-01-10
+created: 2026-01-14
+modified: 2026-01-15
 author: Michell Cronberg
 ---
 # Eventuelle spørgsmål
