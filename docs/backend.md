@@ -44,20 +44,20 @@ dotnet run
 
 3. **Åbn Swagger UI**
 
-Gå til [http://localhost:5000/swagger](http://localhost:5000/swagger) i din browser.
+Gå til [http://localhost:5003/swagger](http://localhost:5003/swagger) i din browser.
 
 ### Test API'et
 
 **Eksempel 1: Hent alle kunder (ingen authentication)**
 
 ```bash
-curl http://localhost:5000/api/public/customers
+curl http://localhost:5003/api/public/customers
 ```
 
 **Eksempel 2: Login og få JWT token**
 
 ```bash
-curl -X POST http://localhost:5000/api/auth/login \
+curl -X POST http://localhost:5003/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"admin"}'
 ```
@@ -65,7 +65,7 @@ curl -X POST http://localhost:5000/api/auth/login \
 **Eksempel 3: Brug JWT token til beskyttet endpoint**
 
 ```bash
-curl http://localhost:5000/api/customers \
+curl http://localhost:5003/api/customers \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
 
