@@ -2039,18 +2039,18 @@
 <ol>
 <li><strong>Åbn Swagger UI</strong></li>
 </ol>
-<p>Gå til <a href="http://localhost:5000/swagger">http://localhost:5000/swagger</a> i din browser.</p>
+<p>Gå til <a href="http://localhost:5003/swagger">http://localhost:5003/swagger</a> i din browser.</p>
 <h3 id="test-apiet">Test API’et</h3>
 <p><strong>Eksempel 1: Hent alle kunder (ingen authentication)</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>http://localhost:5000/api/public/customers
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>http://localhost:5003/api/public/customers
 </span></code></pre></div>
 <p><strong>Eksempel 2: Login og få JWT token</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:5000/api/auth/login<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:5003/api/auth/login<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"username":"admin","password":"admin"}'</span>
 </span></code></pre></div>
 <p><strong>Eksempel 3: Brug JWT token til beskyttet endpoint</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>http://localhost:5000/api/customers<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>http://localhost:5003/api/customers<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </span></code></pre></div>
 <h3 id="live-demo">Live Demo</h3>
