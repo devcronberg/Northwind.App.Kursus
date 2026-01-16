@@ -1,5 +1,8 @@
 site_name: Byg en moderne webapplikation med C#
 site_url: https://mcronberg.github.io\prosa-webapp
+repo_name: devcronberg/Northwind.App.Kursus
+repo_url: https://github.com/devcronberg/Northwind.App.Kursus
+copyright: Copyright &copy; 2026 Michell Cronberg - <a href="https://github.com/devcronberg/Northwind.App.Kursus" target="_blank">Kursus Materiale på GitHub</a>
 
 plugins:
   - search:

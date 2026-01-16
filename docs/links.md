@@ -98,3 +98,7 @@ Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmateria
 - [Materiale brugt i web kurser](https://mcronberg.github.io/web)
 - [AI artikler](https://mcronberg.github.io/aiartikler/)
 
+## Diverse
+- [Google Gravity](https://mrdoob.com/projects/chromeexperiments/google-gravity/) - Sjov demonstration af fysik i browseren
+- [DB Browser for SQLite](https://sqlitebrowser.org/) - Værktøj til at se og redigere SQLite databaser
+
