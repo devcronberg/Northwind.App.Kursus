@@ -1,6 +1,6 @@
 ---
 created: 2026-01-10
-modified: 2026-01-16
+modified: 2026-01-19
 author: Michell Cronberg
 ---
 
@@ -14,6 +14,12 @@ Som nævnt er hele backend-koden tilgængelig på **GitHub** (en platform til at
 
 - Github: https://github.com/devcronberg/Northwind.App.Backend
 - Live Demo: https://northwind-backend-b088.onrender.com
+
+**Tre måder at køre backend på:**
+
+1. **[Clone repository](#clone-repository)** - Hent koden med Git og kør lokalt med .NET
+2. **[Download som ZIP](#eller-download-som-zip)** - Download koden og kør lokalt uden Git
+3. **[Brug Docker](#option-1-brug-pre-built-image-fra-github-container-registry-anbefalet)** - Kør i en container uden at installere .NET
 
 ### Clone repository
 
@@ -565,7 +571,7 @@ Når du installerer en pakke, tilføjes den automatisk til din `.csproj` fil:
 </ItemGroup>
 ```
 
-**NuGet.org:**
+### NuGet
 
 Den centrale pakke-database er [nuget.org](https://nuget.org), hvor over 400.000 pakker er tilgængelige. Du kan søge efter pakker, se downloads, læse dokumentation og tjekke om de er aktivt vedligeholdt.
 
@@ -645,8 +651,8 @@ USER appuser
 COPY --from=publish /app/publish .
 
 # Dynamic port binding
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=5033
+EXPOSE 5033
 
 ENTRYPOINT ["dotnet", "Northwind.App.Backend.dll"]
 ```
@@ -656,31 +662,118 @@ ENTRYPOINT ["dotnet", "Northwind.App.Backend.dll"]
 - Stage 3: Runtime image (lille, 200MB) - til produktion
 - Resultat: Mindre image, hurtigere deployment
 
-### Docker Commands
+### Option 1: Brug Pre-built Image fra GitHub Container Registry (Anbefalet)
 
-**Build image**:
+Dette projekt publicerer automatisk Docker images til **GitHub Container Registry** (GHCR) ved hver commit til `main` branch. Dette betyder at du ikke behøver at bygge imaget selv.
+
+**Hurtigt kom i gang:**
+
 ```bash
+# Pull seneste image
+docker pull ghcr.io/devcronberg/northwind.app.backend:latest
+
+# Kør container
+docker run -d --name northwind-api \
+  -p 5033:5033 \
+  -e ASPNETCORE_URLS=http://+:5033 \
+  ghcr.io/devcronberg/northwind.app.backend:latest
+
+# Tilgå API'et på http://localhost:5033
+# Swagger dokumentation: http://localhost:5033/swagger
+```
+
+**Med Docker Compose (anbefalet til udvikling):**
+
+Opret en `docker-compose.yml` fil:
+
+```yaml
+services:
+  northwind-api:
+    image: ghcr.io/devcronberg/northwind.app.backend:latest
+    container_name: northwind-backend
+    ports:
+      - "5033:5033"
+    environment:
+      - ASPNETCORE_URLS=http://+:5033
+      - ASPNETCORE_ENVIRONMENT=Production
+    restart: unless-stopped
+```
+
+Start med:
+
+```bash
+docker compose up -d
+```
+
+**Tilgængelige image tags:**
+
+- `latest` - Nyeste version fra main branch
+- `0.9.0` - Specifik version (fra .csproj Version tag)
+- `main-sha-abc123` - Commit-specific version
+
+### Option 2: Byg Docker Image Selv
+
+Fra source code:
+
+```bash
+# Klon repository
+git clone https://github.com/devcronberg/Northwind.App.Backend.git
+cd Northwind.App.Backend
+
+# Byg image
 docker build -t northwind-backend .
+
+# Kør container
+docker run -d --name northwind-api \
+  -p 5033:5033 \
+  -e ASPNETCORE_URLS=http://+:5033 \
+  northwind-backend
 ```
 
-**Run container**:
+Eller brug Docker Compose (inkluderet i repository):
+
 ```bash
-docker run -d -p 8080:8080 --name northwind northwind-backend
+docker compose up -d --build
 ```
 
-**View logs**:
-```bash
-docker logs northwind
-```
+### Docker Image Detaljer
 
-**Stop container**:
-```bash
-docker stop northwind
-```
+- **Multi-stage build** - Optimeret til størrelse og sikkerhed
+- **Non-root bruger** - Kører som `appuser` (UID 1001)
+- **Størrelse** - Cirka 220MB (kun runtime)
+- **Base images**:
+  - Build: `mcr.microsoft.com/dotnet/sdk:10.0`
+  - Runtime: `mcr.microsoft.com/dotnet/aspnet:10.0`
+- **Build kvalitet** - Bruger `--warnaserror` flag, så deployment fejler hvis der er warnings
+- **Health Check** - Built-in healthcheck via `/health/live` endpoint
+- **Automatisk publicering** - GitHub Actions bygger og pusher til GHCR ved hver commit
 
-**Remove container**:
+### Nyttige Docker Kommandoer
+
 ```bash
-docker rm northwind
+# Se kørende containers
+docker ps
+
+# Se logs
+docker logs northwind-api
+
+# Se logs live
+docker logs -f northwind-api
+
+# Stop container
+docker stop northwind-api
+
+# Start container igen
+docker start northwind-api
+
+# Fjern container
+docker rm northwind-api
+
+# Pull nyeste version
+docker pull ghcr.io/devcronberg/northwind.app.backend:latest
+
+# Opdater til nyeste version
+docker compose pull && docker compose up -d
 ```
 
 
@@ -715,7 +808,7 @@ services:
       - key: Jwt__Secret
         generateValue: true
       - key: PORT
-        value: 8080
+        value: 5033
 ```
 
 **Deployment proces**:
@@ -736,110 +829,84 @@ services:
 - 750 timer/måned gratis
 - Perfekt til demos, ikke production
 
+## CI/CD med GitHub Actions
+
+Projektet bruger **GitHub Actions** til automatisk build og publicering af Docker images. Dette er et eksempel på **Continuous Integration/Continuous Deployment** (CI/CD) - en moderne praksis hvor kode automatisk bygges, testes og deployes.
+
+### Hvad er CI/CD?
+
+**CI/CD** står for Continuous Integration og Continuous Deployment:
+
+**Continuous Integration (CI):**
+- Automatisk bygning af koden når du pusher til GitHub
+- Kører tests for at sikre at ny kode ikke ødelægger noget
+- Validerer kodekvalitet (i vores projekt: fejler ved compiler warnings)
+- Giver hurtig feedback hvis noget er galt
+
+**Continuous Deployment (CD):**
+- Automatisk deployment til produktion når builds lykkes
+- I vores projekt: Publicerer Docker image til GitHub Container Registry
+- Ingen manuel proces - alt sker automatisk
+- Hurtigere releases og mindre menneskelige fejl
+
+### Automatisk Docker Image Publishing
+
+Ved hver push til `main` branch sker følgende automatisk:
+
+1. **GitHub Actions workflow starter** - Triggeret af ny commit
+2. **Docker image bygges** - Med multi-stage build
+3. **Koden kompileres** - Med `--warnaserror` (fejler ved warnings)
+4. **Version udtrækkes** - Fra `.csproj` fil automatisk
+5. **Image tagges** - Med `latest`, version nummer og commit SHA
+6. **Pushes til GHCR** - GitHub Container Registry
+7. **Tilgængeligt øjeblikkeligt** - Klar til brug på `ghcr.io/devcronberg/northwind.app.backend`
+
+**Tags der oprettes automatisk:**
+
+- `latest` - Nyeste version fra main branch
+- `0.9.0` - Version nummer fra .csproj
+- `main-sha-abc123` - Git commit SHA (sporbarhed)
+
+### GitHub Actions Workflow
+
+Workflowet ligger i `.github/workflows/docker-publish.yml` og udfører:
+
+- ✅ Bygger Docker image med multi-stage build
+- ✅ Ekstraerer version fra .csproj automatisk
+- ✅ Tagger imaget med version, latest og commit SHA
+- ✅ Pusher til GitHub Container Registry
+- ✅ Fejler hvis der er compiler warnings (`--warnaserror`)
+
+**Se build status:**
+
+- Actions tab: [https://github.com/devcronberg/Northwind.App.Backend/actions](https://github.com/devcronberg/Northwind.App.Backend/actions)
+- Package: [https://github.com/devcronberg/Northwind.App.Backend/pkgs/container/northwind.app.backend](https://github.com/devcronberg/Northwind.App.Backend/pkgs/container/northwind.app.backend)
+
+**Manuelt trigger workflow:**
+
+Hvis du vil bygge en ny version uden at lave en commit:
+
+```bash
+# Via GitHub web interface: 
+# Actions → Build and Push Docker Image → Run workflow
+
+# Eller via GitHub CLI:
+gh workflow run docker-publish.yml
+```
+
+!!! info "Fordele ved automatisk publishing"
+    - **Ingen manuel proces** - Glem aldrig at bygge et nyt image
+    - **Konsistent** - Samme build-proces hver gang
+    - **Sporbarhed** - Hver version kan spores til en specifik commit
+    - **Hurtigere** - Ny version klar minutter efter commit
+    - **Fejlhåndtering** - Opdager problemer øjeblikkeligt (warnings, build fejl)
+    - **Kvalitet** - `--warnaserror` sikrer at ingen warnings når produktion
 
 ### Kodekvalitet: Meziantou.Analyzer
 
 For at sikre høj kodekvalitet bruges **Meziantou.Analyzer** – et værktøj, der scanner koden for almindelige fejl og dårlige praksisser. Projektet er endda konfigureret til at fejle under build, hvis der er warnings, hvilket tvinger udvikleren til at rette problemerne med det samme.
 
 
-## Sikkerhed
 
-### Implementerede Sikkerhedstiltag
 
-✅ **JWT Authentication**
-- Token-baseret, stateless
-- Configurable expiration
-- Refresh token rotation
-
-✅ **HTTPS**
-- TLS encryption
-- Response compression kun over HTTPS
-
-✅ **Non-root Container User**
-- Kører som UID/GID 1001
-- Begrænset systemadgang
-
-✅ **Problem Details (RFC 7807)**
-- Konsistent error format
-- Ingen stack traces i produktion
-
-✅ **Health Checks**
-- Liveness/Readiness probes
-- Monitoring integration
-
-### Sikkerhedsforbedringer til Produktion
-
-⚠️ **Nuværende begrænsninger (demo)**:
-
-1. **JWT Secret hardcoded**
-   ```csharp
-   // appsettings.json - IKKE SIKKERT!
-   "Jwt": {
-     "Secret": "ThisIsASecretKeyForDemoOnlyChangeInProduction123!"
-   }
-   ```
-   **Fix**: Brug environment variable eller Azure Key Vault
-
-2. **In-memory Token Storage**
-   ```csharp
-   // AuthController.cs
-   private static Dictionary<string, (string Username, DateTime Expiry)> _refreshTokens = new();
-   ```
-   **Problem**: Forsvinder ved restart, virker ikke med multiple instances
-   **Fix**: Redis, database, eller distributed cache
-
-3. **Hardcoded Demo Users**
-   ```csharp
-   if (request.Username == "admin" && request.Password == "admin")
-   ```
-   **Fix**: Database med hashed passwords (bcrypt, Argon2)
-
-4. **CORS Allow All**
-   ```csharp
-   policy.AllowAnyOrigin()
-   ```
-   
-   **Hvad er CORS?**
-   
-   **CORS** (Cross-Origin Resource Sharing) er en sikkerhedsmekanisme i browsere, der kontrollerer om en webapplikation på ét domæne må kalde et API på et andet domæne.
-   
-   En **origin** består af: `protocol://domain:port` (f.eks. `https://myapp.com:443`)
-   
-   **Hvorfor er det vigtigt?**
-   
-   Forestil dig at du er logget ind på din netbank. Hvis en ondsindet hjemmeside kunne kalde din netbanks API, kunne den stjæle dine penge - fordi browseren automatisk sender dine login-cookies med. CORS forhindrer dette ved at blokere requests mellem forskellige domæner som standard.
-   
-   **Problemet med `AllowAnyOrigin()`:**
-   
-   ```csharp
-   // ALDRIG gør dette i produktion!
-   policy.AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader();
-   ```
-   
-   Dette tillader ALLE websites at kalde dit API - inklusiv ondsindede sites.
-   
-   **Sikker konfiguration:**
-   
-   ```csharp
-   // GODT: Specificer præcis hvilke origins der er tilladt
-   policy.WithOrigins(
-       "https://myapp.com",
-       "http://localhost:3000" // Kun til udvikling
-   )
-   .AllowAnyMethod()
-   .AllowAnyHeader()
-   .AllowCredentials();
-   ```
-   
-   **Hvorfor bruger demo'en `AllowAnyOrigin()`?**
-   
-   Demo-applikationen skal kunne tilgås fra mange forskellige klienter (Swagger UI, cURL, Postman, din lokale frontend), så CORS er sat til at tillade alt for at gøre det nemmere at eksperimentere.
-   
-   **Fix**: Specificer konkrete origins i produktion
-
-5. **SQLite Database**
-   - Filbaseret, ikke skalerbar
-   **Fix**: PostgreSQL, SQL Server, eller Azure SQL
 
