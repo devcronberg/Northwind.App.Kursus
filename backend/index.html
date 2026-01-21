@@ -425,15 +425,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hent-eksempel-kode" class="md-nav__link">
+  <a href="#eksempel-kode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hent eksempel kode
+        Eksempel kode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hent eksempel kode">
+    <nav class="md-nav" aria-label="Eksempel kode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -905,15 +905,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hent-eksempel-kode" class="md-nav__link">
+  <a href="#eksempel-kode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hent eksempel kode
+        Eksempel kode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hent eksempel kode">
+    <nav class="md-nav" aria-label="Eksempel kode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1293,18 +1293,16 @@
 <div class="document-dates-plugin-wrapper document-dates-top"><div class="document-dates-plugin" locale="da"><div class="dd-left"><span class="dd-item" data-tippy-content data-tippy-raw="2026-01-10"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-01-10T00:00:00">2026-01-10</time></span><span class="dd-item" data-tippy-content data-tippy-raw="2026-01-19"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-01-19T00:00:00">2026-01-19</time></span></div><div class="dd-right"><span class="material-icons" data-icon="doc_author"></span><div class="author-group"><div class="avatar-wrapper" data-name="Michell Cronberg" data-tippy-content data-tippy-raw='&lt;a href="mailto:michell@cronberg.dk"&gt;Michell Cronberg&lt;/a&gt;'><span class="avatar-text"></span><img class="avatar" data-src="" data-email="michell@cronberg.dk"></div></div></div></div></div>
 
 <p>Sørg for at læse <a href="../setup/">setup</a> og <a href="../overblik/">overblik</a> før du kigger på denne side. Og husk der er massere af ressourcer i <a href="../links/">Links og Ressourcer</a> siden.</p>
-<h2 id="hent-eksempel-kode">Hent eksempel kode</h2>
+<h2 id="eksempel-kode">Eksempel kode</h2>
 <p>Som nævnt er hele backend-koden tilgængelig på <strong>GitHub</strong> (en platform til at dele og samarbejde om kode), så du kan følge med, eksperimentere og køre applikationen lokalt. Selv om du ikke har planer om at skrive kode, er en lokal installation god til at få forståelse for hvordan backend fungerer.</p>
 <ul>
 <li>Github: <a href="https://github.com/devcronberg/Northwind.App.Backend">https://github.com/devcronberg/Northwind.App.Backend</a></li>
 <li>Live Demo: <a href="https://northwind-backend-b088.onrender.com">https://northwind-backend-b088.onrender.com</a></li>
+<li>Docker: `docker run -d –name northwind-api -p 5033:5033 -e ASPNETCORE_URLS=http://+:5033 ghcr.io/devcronberg/northwind.app.backend:latest<ul>
+<li>Se senere</li>
 </ul>
-<p><strong>Tre måder at køre backend på:</strong></p>
-<ol>
-<li><strong><a href="#clone-repository">Clone repository</a></strong> - Hent koden med Git og kør lokalt med .NET</li>
-<li><strong><a href="#eller-download-som-zip">Download som ZIP</a></strong> - Download koden og kør lokalt uden Git</li>
-<li><strong><a href="#option-1-brug-pre-built-image-fra-github-container-registry-anbefalet">Brug Docker</a></strong> - Kør i en container uden at installere .NET</li>
-</ol>
+</li>
+</ul>
 <h3 id="clone-repository">Clone repository</h3>
 <p>Åbn en terminal og kør (du bruger her <strong>Git</strong>, et versionskontrolsystem, til at hente en kopi af koden):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/devcronberg/Northwind.App.Backend.git
