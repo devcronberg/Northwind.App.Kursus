@@ -8,18 +8,14 @@ author: Michell Cronberg
 
 Sørg for at læse [setup](setup.md) og [overblik](overblik.md) før du kigger på denne side. Og husk der er massere af ressourcer i [Links og Ressourcer](links.md) siden.
 
-## Hent eksempel kode
+## Eksempel kode
 
 Som nævnt er hele backend-koden tilgængelig på **GitHub** (en platform til at dele og samarbejde om kode), så du kan følge med, eksperimentere og køre applikationen lokalt. Selv om du ikke har planer om at skrive kode, er en lokal installation god til at få forståelse for hvordan backend fungerer.
 
 - Github: https://github.com/devcronberg/Northwind.App.Backend
 - Live Demo: https://northwind-backend-b088.onrender.com
-
-**Tre måder at køre backend på:**
-
-1. **[Clone repository](#clone-repository)** - Hent koden med Git og kør lokalt med .NET
-2. **[Download som ZIP](#eller-download-som-zip)** - Download koden og kør lokalt uden Git
-3. **[Brug Docker](#option-1-brug-pre-built-image-fra-github-container-registry-anbefalet)** - Kør i en container uden at installere .NET
+- Docker: `docker run -d --name northwind-api -p 5033:5033 -e ASPNETCORE_URLS=http://+:5033 ghcr.io/devcronberg/northwind.app.backend:latest
+    - Se senere
 
 ### Clone repository
 
