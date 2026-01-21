@@ -14,7 +14,7 @@ Som nævnt er hele backend-koden tilgængelig på **GitHub** (en platform til at
 
 - Github: https://github.com/devcronberg/Northwind.App.Backend
 - Live Demo: https://northwind-backend-b088.onrender.com
-- Docker: `docker run -d --name northwind-api -p 5033:5033 -e ASPNETCORE_URLS=http://+:5033 ghcr.io/devcronberg/northwind.app.backend:latest
+- Docker: `docker run -d --name northwind-api -p 5033:5033 -e ASPNETCORE_URLS=http://+:5033 ghcr.io/devcronberg/northwind.app.backend:latest`
     - Se senere
 
 ### Clone repository
