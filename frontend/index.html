@@ -1168,6 +1168,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typescript-som-alternativ-til-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript som Alternativ til JavaScript
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TypeScript som Alternativ til JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er TypeScript?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fordele-ved-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fordele ved TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ulemper-ved-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ulemper ved TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvornar-bruge-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvornår bruge TypeScript?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvad-mangler-i-en-produktionsapplikation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1983,6 +2044,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typescript-som-alternativ-til-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript som Alternativ til JavaScript
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TypeScript som Alternativ til JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hvad-er-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvad er TypeScript?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fordele-ved-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fordele ved TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ulemper-ved-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ulemper ved TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hvornar-bruge-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hvornår bruge TypeScript?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvad-mangler-i-en-produktionsapplikation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2715,6 +2837,48 @@
 <li>Run linting</li>
 <li>Deploy til GitHub Pages</li>
 </ol>
+<hr>
+<h2 id="typescript-som-alternativ-til-javascript">TypeScript som Alternativ til JavaScript</h2>
+<p><strong>TypeScript</strong> er et programmeringssprog udviklet af Microsoft, der bygger ovenpå JavaScript ved at tilføje statisk typning.</p>
+<h3 id="hvad-er-typescript">Hvad er TypeScript?</h3>
+<p>TypeScript kompileres til almindelig JavaScript, men giver udvikleren mulighed for at definere typer på variabler, funktioner og objekter:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// JavaScript</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">"Hello "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1">// TypeScript</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">"Hello "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="fordele-ved-typescript">Fordele ved TypeScript</h3>
+<ul>
+<li><strong>Type Safety</strong> - Fang fejl ved kompilering i stedet for runtime</li>
+<li><strong>Bedre IDE support</strong> - Autocomplete, refactoring og inline dokumentation</li>
+<li><strong>Større projekter</strong> - Lettere at vedligeholde og refaktorere kompleks kode</li>
+<li><strong>API klienter</strong> - Automatisk generering fra OpenAPI/Swagger med fuld type safety</li>
+<li><strong>Teamwork</strong> - Typer fungerer som dokumentation og kontrakter mellem komponenter</li>
+</ul>
+<h3 id="ulemper-ved-typescript">Ulemper ved TypeScript</h3>
+<ul>
+<li><strong>Læringskurve</strong> - Kræver forståelse af type system</li>
+<li><strong>Ekstra kompleksitet</strong> - Build step og konfiguration nødvendig</li>
+<li><strong>Mindre fleksibilitet</strong> - JavaScript’s dynamiske natur begrænses</li>
+<li><strong>Overkill for små projekter</strong> - Overhead kan overstige fordele i simple applikationer</li>
+<li><strong>Compile time</strong> - Ekstra step mellem kode og resultat</li>
+</ul>
+<h3 id="hvornar-bruge-typescript">Hvornår bruge TypeScript?</h3>
+<p><strong>TypeScript er smart når:</strong>
+- Du arbejder i et team med flere udviklere
+- Projektet er stort eller forventes at vokse
+- Du integrerer med eksterne API’er (type safety fra OpenAPI/Swagger)
+- Lang vedligeholdelsesperiode</p>
+<p><strong>JavaScript er nok når:</strong>
+- Små prototyper eller proof-of-concepts
+- Hurtig udvikling og eksperimentering er prioritet
+- Teamet har begrænset TypeScript erfaring
+- Projektet er simpelt og overskueligt</p>
 <hr>
 <h2 id="hvad-mangler-i-en-produktionsapplikation">Hvad mangler i en produktionsapplikation?</h2>
 <p>Dette er en uddannelsesapplikation. I en professionel produktionsapplikation ville du også overveje:</p>
