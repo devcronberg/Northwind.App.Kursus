@@ -742,3 +742,16 @@ npm run lint
 4. Run linting
 5. Deploy til GitHub Pages
 
+---
+
+## Hvad mangler i en produktionsapplikation?
+
+Dette er en uddannelsesapplikation. I en professionel produktionsapplikation ville du også overveje:
+
+- **Tests** - Unit tests, integration tests og end-to-end tests
+- **Sikkerhed** - Input validering, XSS beskyttelse, Content Security Policy
+- **Performance** - Caching strategi, lazy loading, code splitting, asset optimization
+- **Error tracking** - Centraliseret logging og monitoring (f.eks. Sentry)
+- **Environment management** - Adskillelse af development, staging og production
+- **Build process** - Minification, bundling og optimering af assets
+
