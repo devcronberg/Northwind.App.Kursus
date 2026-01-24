@@ -744,6 +744,58 @@ npm run lint
 
 ---
 
+## TypeScript som Alternativ til JavaScript
+
+**TypeScript** er et programmeringssprog udviklet af Microsoft, der bygger ovenpå JavaScript ved at tilføje statisk typning.
+
+### Hvad er TypeScript?
+
+TypeScript kompileres til almindelig JavaScript, men giver udvikleren mulighed for at definere typer på variabler, funktioner og objekter:
+
+```typescript
+// JavaScript
+function greet(name) {
+  return "Hello " + name;
+}
+
+// TypeScript
+function greet(name: string): string {
+  return "Hello " + name;
+}
+```
+
+### Fordele ved TypeScript
+
+- **Type Safety** - Fang fejl ved kompilering i stedet for runtime
+- **Bedre IDE support** - Autocomplete, refactoring og inline dokumentation
+- **Større projekter** - Lettere at vedligeholde og refaktorere kompleks kode
+- **API klienter** - Automatisk generering fra OpenAPI/Swagger med fuld type safety
+- **Teamwork** - Typer fungerer som dokumentation og kontrakter mellem komponenter
+
+### Ulemper ved TypeScript
+
+- **Læringskurve** - Kræver forståelse af type system
+- **Ekstra kompleksitet** - Build step og konfiguration nødvendig
+- **Mindre fleksibilitet** - JavaScript's dynamiske natur begrænses
+- **Overkill for små projekter** - Overhead kan overstige fordele i simple applikationer
+- **Compile time** - Ekstra step mellem kode og resultat
+
+### Hvornår bruge TypeScript?
+
+**TypeScript er smart når:**
+- Du arbejder i et team med flere udviklere
+- Projektet er stort eller forventes at vokse
+- Du integrerer med eksterne API'er (type safety fra OpenAPI/Swagger)
+- Lang vedligeholdelsesperiode
+
+**JavaScript er nok når:**
+- Små prototyper eller proof-of-concepts
+- Hurtig udvikling og eksperimentering er prioritet
+- Teamet har begrænset TypeScript erfaring
+- Projektet er simpelt og overskueligt
+
+---
+
 ## Hvad mangler i en produktionsapplikation?
 
 Dette er en uddannelsesapplikation. I en professionel produktionsapplikation ville du også overveje:
