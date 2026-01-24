@@ -5,6 +5,13 @@ author: Michell Cronberg
 ---
 # Frontend
 
+Find forskellige versioner af frontend
+
+- Kode vanilla version: https://github.com/devcronberg/Northwind.App.Frontend
+    - Deployment: https://devcronberg.github.io/Northwind.App.Frontend/
+- Kode TypeScript version: https://github.com/devcronberg/Northwind.App.Frontend.TypeScript/
+    - Deployment: https://devcronberg.github.io/Northwind.App.Frontend.TypeScript/
+
 ## Hent eksempel kode
 
 Hele frontend-koden er tilgængelig på GitHub, så du kan følge med, eksperimentere og køre applikationen lokalt.
@@ -744,55 +751,15 @@ npm run lint
 
 ---
 
-## TypeScript som Alternativ til JavaScript
+## TypeScript Version
 
-**TypeScript** er et programmeringssprog udviklet af Microsoft, der bygger ovenpå JavaScript ved at tilføje statisk typning.
+Applikationen findes også i en TypeScript-version, der demonstrerer hvordan samme funktionalitet kan implementeres med statisk typning og moderne tooling.
 
-### Hvad er TypeScript?
+**Repository:** [https://github.com/devcronberg/Northwind.App.Frontend.TypeScript](https://github.com/devcronberg/Northwind.App.Frontend.TypeScript)
 
-TypeScript kompileres til almindelig JavaScript, men giver udvikleren mulighed for at definere typer på variabler, funktioner og objekter:
+**Live Demo:** [https://devcronberg.github.io/Northwind.App.Frontend.TypeScript](https://devcronberg.github.io/Northwind.App.Frontend.TypeScript)
 
-```typescript
-// JavaScript
-function greet(name) {
-  return "Hello " + name;
-}
-
-// TypeScript
-function greet(name: string): string {
-  return "Hello " + name;
-}
-```
-
-### Fordele ved TypeScript
-
-- **Type Safety** - Fang fejl ved kompilering i stedet for runtime
-- **Bedre IDE support** - Autocomplete, refactoring og inline dokumentation
-- **Større projekter** - Lettere at vedligeholde og refaktorere kompleks kode
-- **API klienter** - Automatisk generering fra OpenAPI/Swagger med fuld type safety
-- **Teamwork** - Typer fungerer som dokumentation og kontrakter mellem komponenter
-
-### Ulemper ved TypeScript
-
-- **Læringskurve** - Kræver forståelse af type system
-- **Ekstra kompleksitet** - Build step og konfiguration nødvendig
-- **Mindre fleksibilitet** - JavaScript's dynamiske natur begrænses
-- **Overkill for små projekter** - Overhead kan overstige fordele i simple applikationer
-- **Compile time** - Ekstra step mellem kode og resultat
-
-### Hvornår bruge TypeScript?
-
-**TypeScript er smart når:**
-- Du arbejder i et team med flere udviklere
-- Projektet er stort eller forventes at vokse
-- Du integrerer med eksterne API'er (type safety fra OpenAPI/Swagger)
-- Lang vedligeholdelsesperiode
-
-**JavaScript er nok når:**
-- Små prototyper eller proof-of-concepts
-- Hurtig udvikling og eksperimentering er prioritet
-- Teamet har begrænset TypeScript erfaring
-- Projektet er simpelt og overskueligt
+TypeScript-versionen inkluderer samme funktionalitet som vanilla JavaScript-versionen, men med tilføjet type safety, bedre IDE-support og automatisk genererede API-klienter fra OpenAPI/Swagger specifikationen. Det kan være interessant at sammenligne de to implementeringer for at se forskellen mellem JavaScript og TypeScript i praksis.
 
 ---
 
