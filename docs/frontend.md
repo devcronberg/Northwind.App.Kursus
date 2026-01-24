@@ -89,26 +89,14 @@ Vores applikation er bygget som en **Multi-Page Application** – en traditionel
 
 - `index.html` - Dashboard med top customers
 - `customers.html` - Customer management med CRUD operationer
-- 'about.html' - Om applikationen (eksempel)
+- `about.html` - Om applikationen (eksempel)
 - Hver side er en komplet HTML-fil
 - Navigation mellem sider indlæser en ny HTML-fil
 - Backend leverer data via REST API (JSON)
 
-### Web Components til Genbrug
-
-Selvom vi har flere HTML-sider, genbruger vi kode via **Web Components**:
-
-- `<app-header>` - Fælles header på alle sider
-- `<app-footer>` - Fælles footer på alle sider
-- `<customer-table>` - Tabel-komponent til kunde-visning
-- `<customer-revenue-table>` - Dashboard-tabel
-- `<form-text-input>` - Genanvendelig form-input
-
-Web Components giver os **modulær og genanvendelig kode** uden behov for et framework. Se evt afsnittet om [Web Components](https://mcronberg.github.io/web/overview.html#web-component-example) for et par andre eksempler.
-
 ### Single Page Application (SPA) – Et Alternativ
 
-En **SPA** (Single Page Application) er en moderne applikationsarkitektur, hvor:
+Aternativet er en **SPA** (Single Page Application) er en moderne applikationsarkitektur, hvor:
 
 - Kun **én HTML-fil** indlæses (typisk `index.html`)
 - **JavaScript håndterer navigation** – ingen page refreshes
