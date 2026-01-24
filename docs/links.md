@@ -87,8 +87,11 @@ Dette er en samlet oversigt over alle links og ressourcer nævnt i kursusmateria
 
 ### Large Language Models
 - [ChatGPT](https://chat.openai.com/) - OpenAI's AI-assistent
+- [OpenAI API](https://platform.openai.com/) - OpenAI's API platform
 - [Claude](https://claude.ai/) - Anthropic's AI-assistent
 - [Gemini](https://gemini.google.com/) - Google's AI-assistent
+- [Mistral AI](https://mistral.ai/) - Europæisk AI-assistent
+- [OpenRouter](https://openrouter.ai/) - Samlet adgang til flere AI-modeller
 
 ## Kursusmateriale
 
